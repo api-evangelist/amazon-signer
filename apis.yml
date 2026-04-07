@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Code Signing
-  - Security
-  - Lambda
-  - IoT
   - AWS
+  - Code Signing
+  - IoT
+  - Lambda
+  - Security
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -29,8 +29,8 @@ apis:
     baseURL: https://signer.amazonaws.com
     tags:
       - Code Signing
-      - Security
       - Lambda
+      - Security
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
