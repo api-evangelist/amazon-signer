@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-remove-profile-permission-request-structure.json",
+  "name": "RemoveProfilePermissionRequest",
+  "description": "RemoveProfilePermissionRequest schema from AWS Signer API",
+  "properties": {}
+}

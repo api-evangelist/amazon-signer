@@ -1,0 +1,11 @@
+{
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "displayName": "MySigningResource",
+  "partner": "example-value",
+  "target": "example-value",
+  "category": "example-value",
+  "signingConfiguration": "example-value",
+  "signingImageFormat": "example-value",
+  "maxSizeInMB": "example-value",
+  "revocationSupported": "example-value"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-status-schema.json",
+  "title": "SigningStatus",
+  "description": "SigningStatus schema from AWS Signer API",
+  "type": "string",
+  "enum": [
+    "InProgress",
+    "Failed",
+    "Succeeded"
+  ]
+}

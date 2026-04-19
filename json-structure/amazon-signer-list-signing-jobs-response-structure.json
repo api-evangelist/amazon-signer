@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-list-signing-jobs-response-structure.json",
+  "name": "ListSigningJobsResponse",
+  "description": "ListSigningJobsResponse schema from AWS Signer API",
+  "properties": {
+    "jobs": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/SigningJob"
+          }
+        },
+        {
+          "description": "A list of your signing jobs."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "String for specifying the next set of paginated results."
+        }
+      ]
+    }
+  }
+}

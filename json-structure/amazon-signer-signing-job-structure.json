@@ -1,0 +1,208 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signing-job-structure.json",
+  "name": "SigningJob",
+  "description": "Contains information about a signing job.",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of the signing job."
+        }
+      ]
+    },
+    "source": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/S3Source"
+                },
+                {
+                  "description": "The <code>S3Source</code> object."
+                }
+              ]
+            }
+          },
+          "description": "An <code>S3Source</code> object that contains information about the S3 bucket where you saved your unsigned code."
+        },
+        {
+          "description": "A <code>Source</code> that contains information about a signing job's code image source."
+        }
+      ]
+    },
+    "signedObject": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/S3SignedObject"
+                },
+                {
+                  "description": "The <code>S3SignedObject</code>."
+                }
+              ]
+            }
+          },
+          "description": "Points to an <code>S3SignedObject</code> object that contains information about your signed code image."
+        },
+        {
+          "description": "A <code>SignedObject</code> structure that contains information about a signing job's signed code image."
+        }
+      ]
+    },
+    "signingMaterial": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "certificateArn"
+          ],
+          "properties": {
+            "certificateArn": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CertificateArn"
+                },
+                {
+                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+                }
+              ]
+            }
+          },
+          "description": "The ACM certificate that is used to sign your code."
+        },
+        {
+          "description": "A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of the certificate used for the signing job."
+        }
+      ]
+    },
+    "createdAt": {
+      "allOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "description": "The date and time that the signing job was created."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "InProgress",
+            "Failed",
+            "Succeeded"
+          ]
+        },
+        {
+          "description": "The status of the signing job."
+        }
+      ]
+    },
+    "isRevoked": {
+      "allOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "description": "Indicates whether the signing job is revoked."
+        }
+      ]
+    },
+    "profileName": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]{2,}",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        {
+          "description": "The name of the signing profile that created a signing job."
+        }
+      ]
+    },
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The version of the signing profile that created a signing job."
+        }
+      ]
+    },
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The unique identifier for a signing platform."
+        }
+      ]
+    },
+    "platformDisplayName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The name of a signing platform."
+        }
+      ]
+    },
+    "signatureExpiresAt": {
+      "allOf": [
+        {
+          "type": "datetime"
+        },
+        {
+          "description": "The time when the signature of a signing job expires."
+        }
+      ]
+    },
+    "jobOwner": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{12}$",
+          "minLength": 12,
+          "maxLength": 12
+        },
+        {
+          "description": "The AWS account ID of the job owner."
+        }
+      ]
+    },
+    "jobInvoker": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{12}$",
+          "minLength": 12,
+          "maxLength": 12
+        },
+        {
+          "description": "The AWS account ID of the job invoker."
+        }
+      ]
+    }
+  }
+}

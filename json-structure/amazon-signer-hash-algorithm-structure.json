@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-hash-algorithm-structure.json",
+  "name": "HashAlgorithm",
+  "description": "HashAlgorithm schema from AWS Signer API",
+  "enum": [
+    "SHA1",
+    "SHA256"
+  ]
+}

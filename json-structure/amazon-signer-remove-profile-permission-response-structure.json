@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-remove-profile-permission-response-structure.json",
+  "name": "RemoveProfilePermissionResponse",
+  "description": "RemoveProfilePermissionResponse schema from AWS Signer API",
+  "properties": {
+    "revisionId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "An identifier for the current revision of the profile permissions."
+        }
+      ]
+    }
+  }
+}

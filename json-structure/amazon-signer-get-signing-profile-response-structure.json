@@ -1,0 +1,251 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-get-signing-profile-response-structure.json",
+  "name": "GetSigningProfileResponse",
+  "description": "GetSigningProfileResponse schema from AWS Signer API",
+  "properties": {
+    "profileName": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]{2,}",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        {
+          "description": "The name of the target signing profile."
+        }
+      ]
+    },
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The current version of the signing profile."
+        }
+      ]
+    },
+    "profileVersionArn": {
+      "allOf": [
+        {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2048
+        },
+        {
+          "description": "The signing profile ARN, including the profile version."
+        }
+      ]
+    },
+    "revocationRecord": {
+      "type": "object",
+      "properties": {
+        "revocationEffectiveFrom": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Timestamp"
+            },
+            {
+              "description": "The time when revocation becomes effective."
+            }
+          ]
+        },
+        "revokedAt": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Timestamp"
+            },
+            {
+              "description": "The time when the signing profile was revoked."
+            }
+          ]
+        },
+        "revokedBy": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/String"
+            },
+            {
+              "description": "The identity of the revoker."
+            }
+          ]
+        }
+      },
+      "description": "Revocation information for a signing profile."
+    },
+    "signingMaterial": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "certificateArn"
+          ],
+          "properties": {
+            "certificateArn": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CertificateArn"
+                },
+                {
+                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+                }
+              ]
+            }
+          },
+          "description": "The ACM certificate that is used to sign your code."
+        },
+        {
+          "description": "The ARN of the certificate that the target profile uses for signing operations."
+        }
+      ]
+    },
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of the platform that is used by the target signing profile."
+        }
+      ]
+    },
+    "platformDisplayName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A human-readable name for the signing platform associated with the signing profile."
+        }
+      ]
+    },
+    "signatureValidityPeriod": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/Integer"
+            },
+            {
+              "description": "The numerical value of the time unit for signature validity."
+            }
+          ]
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ValidityType"
+            },
+            {
+              "description": "The time unit for signature validity."
+            }
+          ]
+        }
+      },
+      "description": "The validity period for a signing job."
+    },
+    "overrides": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "signingConfiguration": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SigningConfigurationOverrides"
+                },
+                {
+                  "description": "A signing configuration that overrides the default encryption or hash algorithm of a signing job."
+                }
+              ]
+            },
+            "signingImageFormat": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ImageFormat"
+                },
+                {
+                  "description": "A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image."
+                }
+              ]
+            }
+          },
+          "description": "Any overrides that are applied to the signing configuration of a code signing platform."
+        },
+        {
+          "description": "A list of overrides applied by the target signing profile for signing operations."
+        }
+      ]
+    },
+    "signingParameters": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/SigningParameterValue"
+          }
+        },
+        {
+          "description": "A map of key-value pairs for signing operations that is attached to the target signing profile."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "Active",
+            "Canceled",
+            "Revoked"
+          ]
+        },
+        {
+          "description": "The status of the target signing profile."
+        }
+      ]
+    },
+    "statusReason": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Reason for the status of the target signing profile."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) for the signing profile."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 200,
+          "additionalProperties": {
+            "$ref": "#/components/schemas/TagValue"
+          }
+        },
+        {
+          "description": "A list of tags associated with the signing profile."
+        }
+      ]
+    }
+  }
+}

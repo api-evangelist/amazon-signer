@@ -1,0 +1,5 @@
+{
+  "arn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile",
+  "profileVersion": "MySigningProfile",
+  "profileVersionArn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile"
+}

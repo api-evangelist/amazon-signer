@@ -1,0 +1,21 @@
+{
+  "jobId": "job-abc123",
+  "source": "example-value",
+  "signingMaterial": "example-value",
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "platformDisplayName": "AWSLambda-SHA384-ECDSA",
+  "profileName": "MySigningProfile",
+  "profileVersion": "MySigningProfile",
+  "overrides": "example-value",
+  "signingParameters": "example-value",
+  "createdAt": "example-value",
+  "completedAt": "example-value",
+  "signatureExpiresAt": "example-value",
+  "requestedBy": "example-value",
+  "status": "Active",
+  "statusReason": "Active",
+  "revocationRecord": "example-value",
+  "signedObject": "example-value",
+  "jobOwner": "job-abc123",
+  "jobInvoker": "job-abc123"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-profile-revocation-record-schema.json",
+  "title": "SigningProfileRevocationRecord",
+  "description": "Revocation information for a signing profile.",
+  "type": "object",
+  "properties": {
+    "revocationEffectiveFrom": {
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "description": "The time when revocation becomes effective."
+        }
+      ]
+    },
+    "revokedAt": {
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "description": "The time when the signing profile was revoked."
+        }
+      ]
+    },
+    "revokedBy": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The identity of the revoker."
+        }
+      ]
+    }
+  }
+}

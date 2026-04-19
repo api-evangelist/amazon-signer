@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-add-profile-permission-response-schema.json",
+  "title": "AddProfilePermissionResponse",
+  "description": "AddProfilePermissionResponse schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "revisionId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A unique identifier for the current profile revision."
+        }
+      ]
+    }
+  }
+}

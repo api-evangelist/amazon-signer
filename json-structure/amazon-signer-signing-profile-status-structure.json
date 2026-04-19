@@ -1,0 +1,12 @@
+{
+  "type": "string",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signing-profile-status-structure.json",
+  "name": "SigningProfileStatus",
+  "description": "SigningProfileStatus schema from AWS Signer API",
+  "enum": [
+    "Active",
+    "Canceled",
+    "Revoked"
+  ]
+}

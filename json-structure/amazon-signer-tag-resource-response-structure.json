@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-tag-resource-response-structure.json",
+  "name": "TagResourceResponse",
+  "description": "TagResourceResponse schema from AWS Signer API",
+  "properties": {}
+}

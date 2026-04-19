@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-encryption-algorithm-options-structure.json",
+  "name": "EncryptionAlgorithmOptions",
+  "description": "The encryption algorithm options that are available to a code signing job.",
+  "properties": {
+    "allowedValues": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/EncryptionAlgorithm"
+          }
+        },
+        {
+          "description": "The set of accepted encryption algorithms that are allowed in a code signing job."
+        }
+      ]
+    },
+    "defaultValue": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "RSA",
+            "ECDSA"
+          ]
+        },
+        {
+          "description": "The default encryption algorithm that is used by a code signing job."
+        }
+      ]
+    }
+  },
+  "required": [
+    "allowedValues",
+    "defaultValue"
+  ]
+}

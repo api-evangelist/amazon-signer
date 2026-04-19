@@ -1,0 +1,7 @@
+{
+  "source": "example-value",
+  "destination": "example-value",
+  "profileName": "MySigningProfile",
+  "clientRequestToken": "example-value",
+  "profileOwner": "MySigningProfile"
+}

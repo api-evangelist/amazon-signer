@@ -1,0 +1,13 @@
+{
+  "profileName": "MySigningProfile",
+  "profileVersion": "MySigningProfile",
+  "profileVersionArn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile",
+  "signingMaterial": "example-value",
+  "signatureValidityPeriod": "example-value",
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "platformDisplayName": "AWSLambda-SHA384-ECDSA",
+  "signingParameters": "example-value",
+  "status": "Active",
+  "arn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile",
+  "tags": "example-value"
+}

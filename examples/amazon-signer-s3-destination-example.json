@@ -1,0 +1,4 @@
+{
+  "bucketName": "my-signing-bucket",
+  "prefix": "example-value"
+}

@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-destination-structure.json",
+  "name": "Destination",
+  "description": "Points to an <code>S3Destination</code> object that contains information about your S3 bucket.",
+  "properties": {
+    "s3": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "bucketName": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/BucketName"
+                },
+                {
+                  "description": "Name of the S3 bucket."
+                }
+              ]
+            },
+            "prefix": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Prefix"
+                },
+                {
+                  "description": "An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix."
+                }
+              ]
+            }
+          },
+          "description": "The name and prefix of the S3 bucket where code signing saves your signed objects."
+        },
+        {
+          "description": "The <code>S3Destination</code> object."
+        }
+      ]
+    }
+  }
+}

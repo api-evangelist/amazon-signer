@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-permission-structure.json",
+  "name": "Permission",
+  "description": "A cross-account permission for a signing profile.",
+  "properties": {
+    "action": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "An AWS Signer action permitted as part of cross-account permissions."
+        }
+      ]
+    },
+    "principal": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The AWS principal that has been granted a cross-account permission."
+        }
+      ]
+    },
+    "statementId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A unique identifier for a cross-account permission statement."
+        }
+      ]
+    },
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The signing profile version that a permission applies to."
+        }
+      ]
+    }
+  }
+}

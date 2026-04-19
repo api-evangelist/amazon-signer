@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-sign-payload-response-structure.json",
+  "name": "SignPayloadResponse",
+  "description": "SignPayloadResponse schema from AWS Signer API",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Unique identifier of the signing job."
+        }
+      ]
+    },
+    "jobOwner": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{12}$",
+          "minLength": 12,
+          "maxLength": 12
+        },
+        {
+          "description": "The AWS account ID of the job owner."
+        }
+      ]
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/String"
+          }
+        },
+        {
+          "description": "Information including the signing profile ARN and the signing job ID. Clients use metadata to signature records, for example, as annotations added to the signature manifest inside an OCI registry."
+        }
+      ]
+    },
+    "signature": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A cryptographic signature."
+        }
+      ]
+    }
+  }
+}

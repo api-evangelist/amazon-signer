@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-category-structure.json",
+  "name": "Category",
+  "description": "Category schema from AWS Signer API",
+  "enum": [
+    "AWSIoT"
+  ]
+}

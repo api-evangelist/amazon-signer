@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-list-signing-platforms-response-structure.json",
+  "name": "ListSigningPlatformsResponse",
+  "description": "ListSigningPlatformsResponse schema from AWS Signer API",
+  "properties": {
+    "platforms": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/SigningPlatform"
+          }
+        },
+        {
+          "description": "A list of all platforms that match the request parameters."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Value for specifying the next set of paginated results to return."
+        }
+      ]
+    }
+  }
+}

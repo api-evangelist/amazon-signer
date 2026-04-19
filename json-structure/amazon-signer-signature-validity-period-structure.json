@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signature-validity-period-structure.json",
+  "name": "SignatureValidityPeriod",
+  "description": "The validity period for a signing job.",
+  "properties": {
+    "value": {
+      "allOf": [
+        {
+          "type": "int32"
+        },
+        {
+          "description": "The numerical value of the time unit for signature validity."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "DAYS",
+            "MONTHS",
+            "YEARS"
+          ]
+        },
+        {
+          "description": "The time unit for signature validity."
+        }
+      ]
+    }
+  }
+}

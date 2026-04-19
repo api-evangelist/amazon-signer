@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-put-signing-profile-response-structure.json",
+  "name": "PutSigningProfileResponse",
+  "description": "PutSigningProfileResponse schema from AWS Signer API",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signing profile created."
+        }
+      ]
+    },
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The version of the signing profile being created."
+        }
+      ]
+    },
+    "profileVersionArn": {
+      "allOf": [
+        {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2048
+        },
+        {
+          "description": "The signing profile ARN, including the profile version."
+        }
+      ]
+    }
+  }
+}

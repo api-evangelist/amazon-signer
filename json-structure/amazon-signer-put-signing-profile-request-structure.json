@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-put-signing-profile-request-structure.json",
+  "name": "PutSigningProfileRequest",
+  "description": "PutSigningProfileRequest schema from AWS Signer API",
+  "properties": {
+    "signingMaterial": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "certificateArn"
+          ],
+          "properties": {
+            "certificateArn": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CertificateArn"
+                },
+                {
+                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+                }
+              ]
+            }
+          },
+          "description": "The ACM certificate that is used to sign your code."
+        },
+        {
+          "description": "The AWS Certificate Manager certificate that will be used to sign code with the new signing profile."
+        }
+      ]
+    },
+    "signatureValidityPeriod": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Integer"
+                },
+                {
+                  "description": "The numerical value of the time unit for signature validity."
+                }
+              ]
+            },
+            "type": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ValidityType"
+                },
+                {
+                  "description": "The time unit for signature validity."
+                }
+              ]
+            }
+          },
+          "description": "The validity period for a signing job."
+        },
+        {
+          "description": "The default validity period override for any signature generated using this signing profile. If unspecified, the default is 135 months."
+        }
+      ]
+    },
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of the signing platform to be created."
+        }
+      ]
+    },
+    "overrides": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "signingConfiguration": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/SigningConfigurationOverrides"
+                },
+                {
+                  "description": "A signing configuration that overrides the default encryption or hash algorithm of a signing job."
+                }
+              ]
+            },
+            "signingImageFormat": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ImageFormat"
+                },
+                {
+                  "description": "A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image."
+                }
+              ]
+            }
+          },
+          "description": "Any overrides that are applied to the signing configuration of a code signing platform."
+        },
+        {
+          "description": "A subfield of <code>platform</code>. This specifies any different configuration options that you want to apply to the chosen platform (such as a different <code>hash-algorithm</code> or <code>signing-algorithm</code>)."
+        }
+      ]
+    },
+    "signingParameters": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/SigningParameterValue"
+          }
+        },
+        {
+          "description": "Map of key-value pairs for signing. These can include any information that you want to use during signing."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 200,
+          "additionalProperties": {
+            "$ref": "#/components/schemas/TagValue"
+          }
+        },
+        {
+          "description": "Tags to be associated with the signing profile that is being created."
+        }
+      ]
+    }
+  },
+  "required": [
+    "platformId"
+  ]
+}

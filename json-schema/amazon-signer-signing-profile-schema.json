@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-profile-schema.json",
+  "title": "SigningProfile",
+  "description": "Contains information about the ACM certificates and code signing configuration parameters that can be used by a given code signing user.",
+  "type": "object",
+  "properties": {
+    "profileName": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]{2,}",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        {
+          "description": "The name of the signing profile."
+        }
+      ]
+    },
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The version of a signing profile."
+        }
+      ]
+    },
+    "profileVersionArn": {
+      "allOf": [
+        {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2048
+        },
+        {
+          "description": "The ARN of a signing profile, including the profile version."
+        }
+      ]
+    },
+    "signingMaterial": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "certificateArn"
+          ],
+          "properties": {
+            "certificateArn": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CertificateArn"
+                },
+                {
+                  "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+                }
+              ]
+            }
+          },
+          "description": "The ACM certificate that is used to sign your code."
+        },
+        {
+          "description": "The ACM certificate that is available for use by a signing profile."
+        }
+      ]
+    },
+    "signatureValidityPeriod": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Integer"
+                },
+                {
+                  "description": "The numerical value of the time unit for signature validity."
+                }
+              ]
+            },
+            "type": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ValidityType"
+                },
+                {
+                  "description": "The time unit for signature validity."
+                }
+              ]
+            }
+          },
+          "description": "The validity period for a signing job."
+        },
+        {
+          "description": "The validity period for a signing job created using this signing profile."
+        }
+      ]
+    },
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of a platform that is available for use by a signing profile."
+        }
+      ]
+    },
+    "platformDisplayName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The name of the signing platform."
+        }
+      ]
+    },
+    "signingParameters": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/components/schemas/SigningParameterValue"
+          }
+        },
+        {
+          "description": "The parameters that are available for use by a code signing user."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "Active",
+            "Canceled",
+            "Revoked"
+          ]
+        },
+        {
+          "description": "The status of a code signing profile."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) for the signing profile."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 200,
+          "additionalProperties": {
+            "$ref": "#/components/schemas/TagValue"
+          }
+        },
+        {
+          "description": "A list of tags associated with the signing profile."
+        }
+      ]
+    }
+  }
+}

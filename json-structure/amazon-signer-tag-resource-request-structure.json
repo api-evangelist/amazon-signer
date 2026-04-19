@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-tag-resource-request-structure.json",
+  "name": "TagResourceRequest",
+  "description": "TagResourceRequest schema from AWS Signer API",
+  "properties": {
+    "tags": {
+      "allOf": [
+        {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 200,
+          "additionalProperties": {
+            "$ref": "#/components/schemas/TagValue"
+          }
+        },
+        {
+          "description": "One or more tags to be associated with the signing profile."
+        }
+      ]
+    }
+  },
+  "required": [
+    "tags"
+  ]
+}

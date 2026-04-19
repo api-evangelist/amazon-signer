@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-cancel-signing-profile-request-schema.json",
+  "title": "CancelSigningProfileRequest",
+  "description": "CancelSigningProfileRequest schema from AWS Signer API",
+  "type": "object",
+  "properties": {}
+}

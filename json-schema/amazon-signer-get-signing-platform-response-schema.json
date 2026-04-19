@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-get-signing-platform-response-schema.json",
+  "title": "GetSigningPlatformResponse",
+  "description": "GetSigningPlatformResponse schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of the target signing platform."
+        }
+      ]
+    },
+    "displayName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The display name of the target signing platform."
+        }
+      ]
+    },
+    "partner": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A list of partner entities that use the target signing platform."
+        }
+      ]
+    },
+    "target": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The validation template that is used by the target signing platform."
+        }
+      ]
+    },
+    "category": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "AWSIoT"
+          ]
+        },
+        {
+          "description": "The category type of the target signing platform."
+        }
+      ]
+    },
+    "signingConfiguration": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "encryptionAlgorithmOptions",
+            "hashAlgorithmOptions"
+          ],
+          "properties": {
+            "encryptionAlgorithmOptions": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EncryptionAlgorithmOptions"
+                },
+                {
+                  "description": "The encryption algorithm options that are available for a code signing job."
+                }
+              ]
+            },
+            "hashAlgorithmOptions": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/HashAlgorithmOptions"
+                },
+                {
+                  "description": "The hash algorithm options that are available for a code signing job."
+                }
+              ]
+            }
+          },
+          "description": "The configuration of a code signing operation."
+        },
+        {
+          "description": "A list of configurations applied to the target platform at signing."
+        }
+      ]
+    },
+    "signingImageFormat": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "supportedFormats",
+            "defaultFormat"
+          ],
+          "properties": {
+            "supportedFormats": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ImageFormats"
+                },
+                {
+                  "description": "The supported formats of a code signing image."
+                }
+              ]
+            },
+            "defaultFormat": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ImageFormat"
+                },
+                {
+                  "description": "The default format of a code signing image."
+                }
+              ]
+            }
+          },
+          "description": "The image format of a code signing platform or profile."
+        },
+        {
+          "description": "The format of the target platform's signing image."
+        }
+      ]
+    },
+    "maxSizeInMB": {
+      "allOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "description": "The maximum size (in MB) of the payload that can be signed by the target platform."
+        }
+      ]
+    },
+    "revocationSupported": {
+      "allOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "description": "A flag indicating whether signatures generated for the signing platform can be revoked."
+        }
+      ]
+    }
+  }
+}

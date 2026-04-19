@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signing-material-structure.json",
+  "name": "SigningMaterial",
+  "description": "The ACM certificate that is used to sign your code.",
+  "properties": {
+    "certificateArn": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the certificates that is used to sign your code."
+        }
+      ]
+    }
+  },
+  "required": [
+    "certificateArn"
+  ]
+}

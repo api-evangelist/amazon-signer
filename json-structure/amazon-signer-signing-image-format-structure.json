@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signing-image-format-structure.json",
+  "name": "SigningImageFormat",
+  "description": "The image format of a code signing platform or profile.",
+  "properties": {
+    "supportedFormats": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ImageFormat"
+          }
+        },
+        {
+          "description": "The supported formats of a code signing image."
+        }
+      ]
+    },
+    "defaultFormat": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "JSON",
+            "JSONEmbedded",
+            "JSONDetached"
+          ]
+        },
+        {
+          "description": "The default format of a code signing image."
+        }
+      ]
+    }
+  },
+  "required": [
+    "supportedFormats",
+    "defaultFormat"
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amazon": "https://amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AddProfilePermissionRequest": "amazon:AddProfilePermissionRequest",
+    "AddProfilePermissionResponse": "amazon:AddProfilePermissionResponse",
+    "CancelSigningProfileRequest": "amazon:CancelSigningProfileRequest",
+    "DescribeSigningJobRequest": "amazon:DescribeSigningJobRequest",
+    "DescribeSigningJobResponse": "amazon:DescribeSigningJobResponse",
+    "Destination": "amazon:Destination",
+    "EncryptionAlgorithmOptions": "amazon:EncryptionAlgorithmOptions",
+    "GetRevocationStatusRequest": "amazon:GetRevocationStatusRequest",
+    "GetRevocationStatusResponse": "amazon:GetRevocationStatusResponse",
+    "GetSigningPlatformRequest": "amazon:GetSigningPlatformRequest",
+    "GetSigningPlatformResponse": "amazon:GetSigningPlatformResponse",
+    "GetSigningProfileRequest": "amazon:GetSigningProfileRequest",
+    "GetSigningProfileResponse": "amazon:GetSigningProfileResponse",
+    "HashAlgorithmOptions": "amazon:HashAlgorithmOptions",
+    "ListProfilePermissionsRequest": "amazon:ListProfilePermissionsRequest",
+    "ListProfilePermissionsResponse": "amazon:ListProfilePermissionsResponse",
+    "ListSigningJobsRequest": "amazon:ListSigningJobsRequest",
+    "ListSigningJobsResponse": "amazon:ListSigningJobsResponse",
+    "ListSigningPlatformsRequest": "amazon:ListSigningPlatformsRequest",
+    "ListSigningPlatformsResponse": "amazon:ListSigningPlatformsResponse",
+    "ListSigningProfilesRequest": "amazon:ListSigningProfilesRequest",
+    "ListSigningProfilesResponse": "amazon:ListSigningProfilesResponse",
+    "ListTagsForResourceRequest": "amazon:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amazon:ListTagsForResourceResponse",
+    "Metadata": "amazon:Metadata",
+    "Permission": "amazon:Permission",
+    "PutSigningProfileRequest": "amazon:PutSigningProfileRequest",
+    "PutSigningProfileResponse": "amazon:PutSigningProfileResponse",
+    "RemoveProfilePermissionRequest": "amazon:RemoveProfilePermissionRequest",
+    "RemoveProfilePermissionResponse": "amazon:RemoveProfilePermissionResponse",
+    "RevokeSignatureRequest": "amazon:RevokeSignatureRequest",
+    "RevokeSigningProfileRequest": "amazon:RevokeSigningProfileRequest",
+    "S3Destination": "amazon:S3Destination",
+    "S3SignedObject": "amazon:S3SignedObject",
+    "S3Source": "amazon:S3Source",
+    "SignPayloadRequest": "amazon:SignPayloadRequest",
+    "SignPayloadResponse": "amazon:SignPayloadResponse",
+    "SignatureValidityPeriod": "amazon:SignatureValidityPeriod",
+    "SignedObject": "amazon:SignedObject",
+    "SigningConfigurationOverrides": "amazon:SigningConfigurationOverrides",
+    "SigningConfiguration": "amazon:SigningConfiguration",
+    "SigningImageFormat": "amazon:SigningImageFormat",
+    "SigningJobRevocationRecord": "amazon:SigningJobRevocationRecord",
+    "SigningJob": "amazon:SigningJob",
+    "SigningMaterial": "amazon:SigningMaterial",
+    "SigningParameters": "amazon:SigningParameters",
+    "SigningPlatformOverrides": "amazon:SigningPlatformOverrides",
+    "SigningPlatform": "amazon:SigningPlatform",
+    "SigningProfileRevocationRecord": "amazon:SigningProfileRevocationRecord",
+    "SigningProfile": "amazon:SigningProfile",
+    "Source": "amazon:Source",
+    "StartSigningJobRequest": "amazon:StartSigningJobRequest",
+    "StartSigningJobResponse": "amazon:StartSigningJobResponse",
+    "TagMap": "amazon:TagMap",
+    "TagResourceRequest": "amazon:TagResourceRequest",
+    "TagResourceResponse": "amazon:TagResourceResponse",
+    "UntagResourceRequest": "amazon:UntagResourceRequest",
+    "UntagResourceResponse": "amazon:UntagResourceResponse",
+    "profileVersion": {
+      "@id": "amazon:profileVersion",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "amazon:action",
+      "@type": "xsd:string"
+    },
+    "principal": {
+      "@id": "amazon:principal",
+      "@type": "xsd:string"
+    },
+    "revisionId": {
+      "@id": "amazon:revisionId",
+      "@type": "xsd:string"
+    },
+    "statementId": {
+      "@id": "amazon:statementId",
+      "@type": "xsd:string"
+    },
+    "jobId": {
+      "@id": "amazon:jobId",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "amazon:source",
+      "@type": "xsd:string"
+    },
+    "signingMaterial": {
+      "@id": "amazon:signingMaterial",
+      "@type": "xsd:string"
+    },
+    "platformId": {
+      "@id": "amazon:platformId",
+      "@type": "xsd:string"
+    },
+    "platformDisplayName": {
+      "@id": "amazon:platformDisplayName",
+      "@type": "xsd:string"
+    },
+    "profileName": {
+      "@id": "amazon:profileName",
+      "@type": "xsd:string"
+    },
+    "overrides": {
+      "@id": "amazon:overrides",
+      "@type": "xsd:string"
+    },
+    "signingParameters": {
+      "@id": "amazon:signingParameters",
+      "@type": "xsd:string"
+    },
+    "createdAt": "schema:dateCreated",
+    "completedAt": {
+      "@id": "amazon:completedAt",
+      "@type": "xsd:string"
+    },
+    "signatureExpiresAt": {
+      "@id": "amazon:signatureExpiresAt",
+      "@type": "xsd:string"
+    },
+    "requestedBy": {
+      "@id": "amazon:requestedBy",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "amazon:status",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "amazon:statusReason",
+      "@type": "xsd:string"
+    },
+    "revocationRecord": {
+      "@id": "amazon:revocationRecord",
+      "@type": "xsd:string"
+    },
+    "signedObject": {
+      "@id": "amazon:signedObject",
+      "@type": "xsd:string"
+    },
+    "jobOwner": {
+      "@id": "amazon:jobOwner",
+      "@type": "xsd:string"
+    },
+    "jobInvoker": {
+      "@id": "amazon:jobInvoker",
+      "@type": "xsd:string"
+    },
+    "s3": {
+      "@id": "amazon:s3",
+      "@type": "xsd:string"
+    },
+    "allowedValues": {
+      "@id": "amazon:allowedValues",
+      "@type": "xsd:string"
+    },
+    "defaultValue": {
+      "@id": "amazon:defaultValue",
+      "@type": "xsd:string"
+    },
+    "revokedEntities": {
+      "@id": "amazon:revokedEntities",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "amazon:displayName",
+      "@type": "xsd:string"
+    },
+    "partner": {
+      "@id": "amazon:partner",
+      "@type": "xsd:string"
+    },
+    "target": {
+      "@id": "amazon:target",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "amazon:category",
+      "@type": "xsd:string"
+    },
+    "signingConfiguration": {
+      "@id": "amazon:signingConfiguration",
+      "@type": "xsd:string"
+    },
+    "signingImageFormat": {
+      "@id": "amazon:signingImageFormat",
+      "@type": "xsd:string"
+    },
+    "maxSizeInMB": {
+      "@id": "amazon:maxSizeInMB",
+      "@type": "xsd:string"
+    },
+    "revocationSupported": {
+      "@id": "amazon:revocationSupported",
+      "@type": "xsd:string"
+    },
+    "profileVersionArn": {
+      "@id": "amazon:profileVersionArn",
+      "@type": "xsd:string"
+    },
+    "revocationEffectiveFrom": {
+      "@id": "amazon:revocationEffectiveFrom",
+      "@type": "xsd:string"
+    },
+    "revokedAt": {
+      "@id": "amazon:revokedAt",
+      "@type": "xsd:string"
+    },
+    "revokedBy": {
+      "@id": "amazon:revokedBy",
+      "@type": "xsd:string"
+    },
+    "signatureValidityPeriod": {
+      "@id": "amazon:signatureValidityPeriod",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "amazon:value",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "amazon:type",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "amazon:arn",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "amazon:tags",
+      "@type": "xsd:string"
+    },
+    "policySizeBytes": {
+      "@id": "amazon:policySizeBytes",
+      "@type": "xsd:string"
+    },
+    "permissions": {
+      "@id": "amazon:permissions",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "amazon:nextToken",
+      "@type": "xsd:string"
+    },
+    "jobs": {
+      "@id": "amazon:jobs",
+      "@type": "xsd:string"
+    },
+    "platforms": {
+      "@id": "amazon:platforms",
+      "@type": "xsd:string"
+    },
+    "profiles": {
+      "@id": "amazon:profiles",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "amazon:reason",
+      "@type": "xsd:string"
+    },
+    "effectiveTime": {
+      "@id": "amazon:effectiveTime",
+      "@type": "xsd:string"
+    },
+    "bucketName": {
+      "@id": "amazon:bucketName",
+      "@type": "xsd:string"
+    },
+    "prefix": {
+      "@id": "amazon:prefix",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "amazon:key",
+      "@type": "xsd:string"
+    },
+    "version": "schema:version",
+    "profileOwner": {
+      "@id": "amazon:profileOwner",
+      "@type": "xsd:string"
+    },
+    "payload": {
+      "@id": "amazon:payload",
+      "@type": "xsd:string"
+    },
+    "payloadFormat": {
+      "@id": "amazon:payloadFormat",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "amazon:metadata",
+      "@type": "xsd:string"
+    },
+    "signature": {
+      "@id": "amazon:signature",
+      "@type": "xsd:string"
+    },
+    "encryptionAlgorithm": {
+      "@id": "amazon:encryptionAlgorithm",
+      "@type": "xsd:string"
+    },
+    "hashAlgorithm": {
+      "@id": "amazon:hashAlgorithm",
+      "@type": "xsd:string"
+    },
+    "encryptionAlgorithmOptions": {
+      "@id": "amazon:encryptionAlgorithmOptions",
+      "@type": "xsd:string"
+    },
+    "hashAlgorithmOptions": {
+      "@id": "amazon:hashAlgorithmOptions",
+      "@type": "xsd:string"
+    },
+    "supportedFormats": {
+      "@id": "amazon:supportedFormats",
+      "@type": "xsd:string"
+    },
+    "defaultFormat": {
+      "@id": "amazon:defaultFormat",
+      "@type": "xsd:string"
+    },
+    "isRevoked": {
+      "@id": "amazon:isRevoked",
+      "@type": "xsd:string"
+    },
+    "certificateArn": {
+      "@id": "amazon:certificateArn",
+      "@type": "xsd:string"
+    },
+    "destination": {
+      "@id": "amazon:destination",
+      "@type": "xsd:string"
+    },
+    "clientRequestToken": {
+      "@id": "amazon:clientRequestToken",
+      "@type": "xsd:string"
+    }
+  }
+}

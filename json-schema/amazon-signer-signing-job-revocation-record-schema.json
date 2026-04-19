@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-job-revocation-record-schema.json",
+  "title": "SigningJobRevocationRecord",
+  "description": "Revocation information for a signing job.",
+  "type": "object",
+  "properties": {
+    "reason": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A caller-supplied reason for revocation."
+        }
+      ]
+    },
+    "revokedAt": {
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "description": "The time of revocation."
+        }
+      ]
+    },
+    "revokedBy": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The identity of the revoker."
+        }
+      ]
+    }
+  }
+}

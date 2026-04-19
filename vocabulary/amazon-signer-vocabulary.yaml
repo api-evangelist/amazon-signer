@@ -1,0 +1,211 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon Signer
+  description: Vocabulary for the AWS Signer code signing service covering signing profiles, jobs, and platforms.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: AWS Signer API
+    namespace: amazon-signer
+    version: '2017-08-25'
+    baseUrl: https://signer.{region}.amazonaws.com
+    status: active
+  resources:
+  - name: Signing Jobs
+    api: aws-signer-api
+    actions:
+    - StartSigningJob
+    - DescribeSigningJob
+    - ListSigningJobs
+    - RevokeSignature
+    - SignPayload
+  - name: Signing Profiles
+    api: aws-signer-api
+    actions:
+    - PutSigningProfile
+    - GetSigningProfile
+    - ListSigningProfiles
+    - CancelSigningProfile
+    - RevokeSigningProfile
+  - name: Signing Platforms
+    api: aws-signer-api
+    actions:
+    - GetSigningPlatform
+    - ListSigningPlatforms
+  - name: Profile Permissions
+    api: aws-signer-api
+    actions:
+    - AddProfilePermission
+    - RemoveProfilePermission
+    - ListProfilePermissions
+  - name: Tags
+    api: aws-signer-api
+    actions:
+    - TagResource
+    - UntagResource
+    - ListTagsForResource
+  actions:
+  - name: start
+    httpMethod: POST
+    pattern: write
+  - name: list
+    httpMethod: GET
+    pattern: read
+  - name: get
+    httpMethod: GET
+    pattern: read
+  - name: put
+    httpMethod: PUT
+    pattern: write
+  - name: describe
+    httpMethod: GET
+    pattern: read
+  - name: cancel
+    httpMethod: DELETE
+    pattern: destructive
+  - name: revoke
+    httpMethod: PUT
+    pattern: destructive
+  - name: add
+    httpMethod: POST
+    pattern: write
+  - name: remove
+    httpMethod: DELETE
+    pattern: destructive
+  - name: sign
+    httpMethod: POST
+    pattern: write
+  - name: tag
+    httpMethod: POST
+    pattern: write
+  - name: untag
+    httpMethod: DELETE
+    pattern: destructive
+  schemas:
+    core:
+    - SigningJob
+    - SigningProfile
+    - SigningPlatform
+    - SigningJobRevocationRecord
+    configuration:
+    - SigningConfiguration
+    - SigningConfigurationOverrides
+    - SigningPlatformOverrides
+    - SignatureValidityPeriod
+    permissions:
+    - Permission
+    - Permissions
+    source_destination:
+    - S3Source
+    - S3Destination
+    - Source
+    - Destination
+    - SignedObject
+  parameters:
+    pagination:
+    - nextToken
+    - maxResults
+    identifiers:
+    - profileName
+    - jobId
+    - platformId
+    - resourceArn
+    filters:
+    - status
+    - platformId
+    - requestedBy
+    - signatureExpiresAfter
+    - signatureExpiresBefore
+  enums:
+    status:
+    - Active
+    - Canceled
+    - Revoked
+    signing_status:
+    - InProgress
+    - Failed
+    - Succeeded
+    category:
+    - AWSIoT
+    - AWSLambda
+    encryption:
+    - RSA
+    - ECDSA
+    hash:
+    - SHA1
+    - SHA256
+  authentication:
+    schemes:
+    - AWS Signature Version 4
+    headers:
+    - Authorization
+    - X-Amz-Date
+    - X-Amz-Security-Token
+capability:
+  workflows:
+  - name: Code Signing Management
+    file: capabilities/shared/amazon-signer.yaml
+    description: Manage signing profiles, start signing jobs, and verify code integrity
+    apis:
+    - AWS Signer API
+    personas:
+    - Developer
+    - Security Engineer
+  personas:
+  - id: developer
+    name: Developer
+    description: Developer signing Lambda packages or IoT firmware
+    workflows:
+    - Code Signing Management
+  - id: security-engineer
+    name: Security Engineer
+    description: Security engineer managing signing policies and profiles
+    workflows:
+    - Code Signing Management
+  domains:
+  - Code Signing
+  - Lambda Security
+  - IoT Security
+  - Certificate Management
+  namespaces:
+  - name: amazon-signer
+    type: consumed
+  - name: amazon-signer-rest
+    type: rest
+    port: 8080
+  - name: amazon-signer-mcp
+    type: mcp
+    port: 9090
+  binds:
+  - AWS_ACCESS_KEY_ID
+  - AWS_SECRET_ACCESS_KEY
+  - AWS_REGION
+crossReference:
+- resource: Signing Jobs
+  operations:
+  - StartSigningJob
+  - DescribeSigningJob
+  - ListSigningJobs
+  workflows:
+  - Code Signing Management
+  personas:
+  - Developer
+- resource: Signing Profiles
+  operations:
+  - PutSigningProfile
+  - GetSigningProfile
+  - ListSigningProfiles
+  workflows:
+  - Code Signing Management
+  personas:
+  - Security Engineer
+  - Developer
+- resource: Signing Platforms
+  operations:
+  - GetSigningPlatform
+  - ListSigningPlatforms
+  workflows:
+  - Code Signing Management
+  personas:
+  - Developer

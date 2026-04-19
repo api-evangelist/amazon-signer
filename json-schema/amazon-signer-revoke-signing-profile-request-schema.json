@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-revoke-signing-profile-request-schema.json",
+  "title": "RevokeSigningProfileRequest",
+  "description": "RevokeSigningProfileRequest schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The version of the signing profile to be revoked."
+        }
+      ]
+    },
+    "reason": {
+      "allOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        {
+          "description": "The reason for revoking a signing profile."
+        }
+      ]
+    },
+    "effectiveTime": {
+      "allOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "description": "A timestamp for when revocation of a Signing Profile should become effective. Signatures generated using the signing profile after this timestamp are not trusted."
+        }
+      ]
+    }
+  },
+  "required": [
+    "profileVersion",
+    "reason",
+    "effectiveTime"
+  ]
+}

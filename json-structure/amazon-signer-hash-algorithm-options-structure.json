@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-hash-algorithm-options-structure.json",
+  "name": "HashAlgorithmOptions",
+  "description": "The hash algorithms that are available to a code signing job.",
+  "properties": {
+    "allowedValues": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/HashAlgorithm"
+          }
+        },
+        {
+          "description": "The set of accepted hash algorithms allowed in a code signing job."
+        }
+      ]
+    },
+    "defaultValue": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "SHA1",
+            "SHA256"
+          ]
+        },
+        {
+          "description": "The default hash algorithm that is used in a code signing job."
+        }
+      ]
+    }
+  },
+  "required": [
+    "allowedValues",
+    "defaultValue"
+  ]
+}

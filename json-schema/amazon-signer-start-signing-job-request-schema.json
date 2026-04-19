@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-start-signing-job-request-schema.json",
+  "title": "StartSigningJobRequest",
+  "description": "StartSigningJobRequest schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "source": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/S3Source"
+                },
+                {
+                  "description": "The <code>S3Source</code> object."
+                }
+              ]
+            }
+          },
+          "description": "An <code>S3Source</code> object that contains information about the S3 bucket where you saved your unsigned code."
+        },
+        {
+          "description": "The S3 bucket that contains the object to sign or a BLOB that contains your raw code."
+        }
+      ]
+    },
+    "destination": {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "s3": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/S3Destination"
+                },
+                {
+                  "description": "The <code>S3Destination</code> object."
+                }
+              ]
+            }
+          },
+          "description": "Points to an <code>S3Destination</code> object that contains information about your S3 bucket."
+        },
+        {
+          "description": "The S3 bucket in which to save your signed object. The destination contains the name of your bucket and an optional prefix."
+        }
+      ]
+    },
+    "profileName": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]{2,}",
+          "minLength": 2,
+          "maxLength": 64
+        },
+        {
+          "description": "The name of the signing profile."
+        }
+      ]
+    },
+    "clientRequestToken": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "String that identifies the signing request. All calls after the first that use this token return the same response as the first call."
+        }
+      ]
+    },
+    "profileOwner": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{12}$",
+          "minLength": 12,
+          "maxLength": 12
+        },
+        {
+          "description": "The AWS account ID of the signing profile owner."
+        }
+      ]
+    }
+  },
+  "required": [
+    "source",
+    "destination",
+    "profileName",
+    "clientRequestToken"
+  ]
+}

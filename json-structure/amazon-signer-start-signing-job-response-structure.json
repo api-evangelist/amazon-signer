@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-start-signing-job-response-structure.json",
+  "name": "StartSigningJobResponse",
+  "description": "StartSigningJobResponse schema from AWS Signer API",
+  "properties": {
+    "jobId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of your signing job."
+        }
+      ]
+    },
+    "jobOwner": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9]{12}$",
+          "minLength": 12,
+          "maxLength": 12
+        },
+        {
+          "description": "The AWS account ID of the signing job owner."
+        }
+      ]
+    }
+  }
+}

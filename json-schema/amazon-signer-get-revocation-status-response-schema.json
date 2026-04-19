@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-get-revocation-status-response-schema.json",
+  "title": "GetRevocationStatusResponse",
+  "description": "GetRevocationStatusResponse schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "revokedEntities": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/String"
+          }
+        },
+        {
+          "description": "A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API."
+        }
+      ]
+    }
+  }
+}

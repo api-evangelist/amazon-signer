@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-signing-parameters-structure.json",
+  "name": "SigningParameters",
+  "description": "SigningParameters schema from AWS Signer API",
+  "additionalProperties": {
+    "type": "string"
+  }
+}

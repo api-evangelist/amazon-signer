@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-add-profile-permission-request-schema.json",
+  "title": "AddProfilePermissionRequest",
+  "description": "AddProfilePermissionRequest schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "profileVersion": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        {
+          "description": "The version of the signing profile."
+        }
+      ]
+    },
+    "action": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The AWS Signer action permitted as part of cross-account permissions."
+        }
+      ]
+    },
+    "principal": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID."
+        }
+      ]
+    },
+    "revisionId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A unique identifier for the current profile revision."
+        }
+      ]
+    },
+    "statementId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A unique identifier for the cross-account permission statement."
+        }
+      ]
+    }
+  },
+  "required": [
+    "action",
+    "principal",
+    "statementId"
+  ]
+}

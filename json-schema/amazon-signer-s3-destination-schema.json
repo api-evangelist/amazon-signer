@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-s3-destination-schema.json",
+  "title": "S3Destination",
+  "description": "The name and prefix of the S3 bucket where code signing saves your signed objects.",
+  "type": "object",
+  "properties": {
+    "bucketName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Name of the S3 bucket."
+        }
+      ]
+    },
+    "prefix": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-s3-signed-object-schema.json",
+  "title": "S3SignedObject",
+  "description": "The S3 bucket name and key where code signing saved your signed code image.",
+  "type": "object",
+  "properties": {
+    "bucketName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Name of the S3 bucket."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Key name that uniquely identifies a signed code image in your bucket."
+        }
+      ]
+    }
+  }
+}

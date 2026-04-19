@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-list-profile-permissions-response-schema.json",
+  "title": "ListProfilePermissionsResponse",
+  "description": "ListProfilePermissionsResponse schema from AWS Signer API",
+  "type": "object",
+  "properties": {
+    "revisionId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The identifier for the current revision of profile permissions."
+        }
+      ]
+    },
+    "policySizeBytes": {
+      "allOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "description": "Total size of the policy associated with the Signing Profile in bytes."
+        }
+      ]
+    },
+    "permissions": {
+      "allOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Permission"
+          }
+        },
+        {
+          "description": "List of permissions associated with the Signing Profile."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "String for specifying the next set of paginated results."
+        }
+      ]
+    }
+  }
+}

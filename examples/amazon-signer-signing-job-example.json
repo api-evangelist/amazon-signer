@@ -1,0 +1,16 @@
+{
+  "jobId": "job-abc123",
+  "source": "example-value",
+  "signedObject": "example-value",
+  "signingMaterial": "example-value",
+  "createdAt": "example-value",
+  "status": "Active",
+  "isRevoked": "example-value",
+  "profileName": "MySigningProfile",
+  "profileVersion": "MySigningProfile",
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "platformDisplayName": "AWSLambda-SHA384-ECDSA",
+  "signatureExpiresAt": "example-value",
+  "jobOwner": "job-abc123",
+  "jobInvoker": "job-abc123"
+}

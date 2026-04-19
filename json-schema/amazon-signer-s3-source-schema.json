@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-s3-source-schema.json",
+  "title": "S3Source",
+  "description": "Information about the S3 bucket where you saved your unsigned code.",
+  "type": "object",
+  "properties": {
+    "bucketName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Name of the S3 bucket."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Key name of the bucket object that contains your unsigned code."
+        }
+      ]
+    },
+    "version": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Version of your source image in your version enabled S3 bucket."
+        }
+      ]
+    }
+  },
+  "required": [
+    "bucketName",
+    "key",
+    "version"
+  ]
+}

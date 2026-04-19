@@ -1,0 +1,4 @@
+{
+  "bucketName": "my-signing-bucket",
+  "key": "signed-output/my-package.zip"
+}

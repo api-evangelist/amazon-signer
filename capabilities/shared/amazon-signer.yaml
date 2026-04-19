@@ -1,0 +1,527 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: AWS Signer API
+  description: AWS Signer fully managed code signing service for Lambda and IoT devices.
+  tags:
+  - Amazon
+  - AWS
+  - Code Signing
+  - Lambda
+  - IoT
+  - Security
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-signer
+    baseUri: 'http://signer.{region}.amazonaws.com'
+    description: AWS Signer REST API for managing code signing.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_SIGNATURE_V4}}'
+      placement: header
+    resources:
+    - name: signer
+      path: /signer
+      description: signer operations
+      operations:
+      - name: addprofilepermission
+        method: POST
+        description: Amazon Add Profile Permission
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: The human-readable name of the signing profile.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listprofilepermissions
+        method: GET
+        description: Amazon List Profile Permissions
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: Name of the signing profile containing the cross-account permissions.
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: String for specifying the next set of paginated results.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: cancelsigningprofile
+        method: DELETE
+        description: Amazon Cancel Signing Profile
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: The name of the signing profile to be canceled.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getsigningprofile
+        method: GET
+        description: Amazon Get Signing Profile
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: The name of the target signing profile.
+        - name: profileOwner
+          in: query
+          type: string
+          required: false
+          description: The AWS account ID of the profile owner.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: putsigningprofile
+        method: PUT
+        description: Amazon Put Signing Profile
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: The name of the signing profile to be created.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: describesigningjob
+        method: GET
+        description: Amazon Describe Signing Job
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          required: true
+          description: The ID of the signing job on input.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getrevocationstatus
+        method: GET
+        description: Amazon Get Revocation Status
+        inputParameters:
+        - name: signatureTimestamp
+          in: query
+          type: string
+          required: true
+          description: The timestamp of the signature that validates the profile or job.
+        - name: platformId
+          in: query
+          type: string
+          required: true
+          description: 'The ID of a signing platform. '
+        - name: profileVersionArn
+          in: query
+          type: string
+          required: true
+          description: The version of a signing profile.
+        - name: jobArn
+          in: query
+          type: string
+          required: true
+          description: The ARN of a signing job.
+        - name: certificateHashes
+          in: query
+          type: array
+          required: true
+          description: <p>A list of composite signed hashes that identify certificates.</p> <p>A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined 
+            with a parent CA TBS hash (signed by the parent CA’s CA). Root certificates are defined as their own CA.</p>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getsigningplatform
+        method: GET
+        description: Amazon Get Signing Platform
+        inputParameters:
+        - name: platformId
+          in: path
+          type: string
+          required: true
+          description: The ID of the target signing platform.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listsigningjobs
+        method: GET
+        description: Amazon List Signing Jobs
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          required: false
+          description: A status value with which to filter your results.
+        - name: platformId
+          in: query
+          type: string
+          required: false
+          description: The ID of microcontroller platform that you specified for the distribution of your code image.
+        - name: requestedBy
+          in: query
+          type: string
+          required: false
+          description: The IAM principal that requested the signing job.
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: 'Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code>
+            element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. '
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: 'String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the
+            value of <code>nextToken</code> from the response that you just received.'
+        - name: isRevoked
+          in: query
+          type: boolean
+          required: false
+          description: Filters results to return only signing jobs with revoked signatures.
+        - name: signatureExpiresBefore
+          in: query
+          type: string
+          required: false
+          description: Filters results to return only signing jobs with signatures expiring before a specified timestamp.
+        - name: signatureExpiresAfter
+          in: query
+          type: string
+          required: false
+          description: Filters results to return only signing jobs with signatures expiring after a specified timestamp.
+        - name: jobInvoker
+          in: query
+          type: string
+          required: false
+          description: Filters results to return only signing jobs initiated by a specified IAM entity.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: startsigningjob
+        method: POST
+        description: Amazon Start Signing Job
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listsigningplatforms
+        method: GET
+        description: Amazon List Signing Platforms
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          required: false
+          description: The category type of a signing platform.
+        - name: partner
+          in: query
+          type: string
+          required: false
+          description: Any partner entities connected to a signing platform.
+        - name: target
+          in: query
+          type: string
+          required: false
+          description: The validation template that is used by the target signing platform.
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of results to be returned by this operation.
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: 'Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value
+            of <code>nextToken</code> from the response that you just received.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listsigningprofiles
+        method: GET
+        description: Amazon List Signing Profiles
+        inputParameters:
+        - name: includeCanceled
+          in: query
+          type: boolean
+          required: false
+          description: Designates whether to include profiles with the status of <code>CANCELED</code>.
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of profiles to be returned.
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: 'Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value
+            of <code>nextToken</code> from the response that you just received.'
+        - name: platformId
+          in: query
+          type: string
+          required: false
+          description: Filters results to return only signing jobs initiated for a specified signing platform.
+        - name: statuses
+          in: query
+          type: array
+          required: false
+          description: Filters results to return only signing jobs with statuses in the specified list.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listtagsforresource
+        method: GET
+        description: Amazon List Tags For Resource
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: The Amazon Resource Name (ARN) for the signing profile.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: tagresource
+        method: POST
+        description: Amazon Tag Resource
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: The Amazon Resource Name (ARN) for the signing profile.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: removeprofilepermission
+        method: DELETE
+        description: Amazon Remove Profile Permission
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: A human-readable name for the signing profile with permissions to be removed.
+        - name: revisionId
+          in: query
+          type: string
+          required: true
+          description: An identifier for the current revision of the signing profile permissions.
+        - name: statementId
+          in: path
+          type: string
+          required: true
+          description: A unique identifier for the cross-account permissions statement.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: revokesignature
+        method: PUT
+        description: Amazon Revoke Signature
+        inputParameters:
+        - name: jobId
+          in: path
+          type: string
+          required: true
+          description: ID of the signing job to be revoked.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: revokesigningprofile
+        method: PUT
+        description: Amazon Revoke Signing Profile
+        inputParameters:
+        - name: profileName
+          in: path
+          type: string
+          required: true
+          description: The name of the signing profile to be revoked.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: signpayload
+        method: POST
+        description: Amazon Sign Payload
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: untagresource
+        method: DELETE
+        description: Amazon Untag Resource
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: The Amazon Resource Name (ARN) for the signing profile.
+        - name: tagKeys
+          in: query
+          type: array
+          required: true
+          description: A list of tag keys to be removed from the signing profile.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: amazon-signer-rest
+    resources:
+    - path: /v1/signing-jobs
+      name: signing-jobs
+      description: Signing job operations
+      operations:
+      - method: GET
+        name: list-signing-jobs
+        description: List signing jobs
+        call: amazon-signer.listsigningjobs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/signing-profiles
+      name: signing-profiles
+      description: Signing profile operations
+      operations:
+      - method: GET
+        name: list-signing-profiles
+        description: List signing profiles
+        call: amazon-signer.listsigningprofiles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: amazon-signer-mcp
+    transport: http
+    description: MCP server for AI-assisted AWS code signing management.
+    tools:
+    - name: list-signing-jobs
+      description: List all signing jobs
+      hints:
+        readOnly: true
+        openWorld: true
+      call: amazon-signer.listsigningjobs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: start-signing-job
+      description: Start a new code signing job
+      hints:
+        readOnly: false
+        destructive: false
+      call: amazon-signer.startsigningjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-signing-job
+      description: Get details of a signing job
+      hints:
+        readOnly: true
+        idempotent: true
+      call: amazon-signer.describesigningjob
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-signing-profiles
+      description: List signing profiles
+      hints:
+        readOnly: true
+        openWorld: true
+      call: amazon-signer.listsigningprofiles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: put-signing-profile
+      description: Create or update a signing profile
+      hints:
+        readOnly: false
+        idempotent: true
+      call: amazon-signer.putsigningprofile
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-signature
+      description: Revoke a code signature
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-signer.revokesignature
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-signing-platforms
+      description: List available signing platforms
+      hints:
+        readOnly: true
+        openWorld: true
+      call: amazon-signer.listsigningplatforms
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-payload
+      description: Sign a payload directly
+      hints:
+        readOnly: false
+        destructive: false
+      call: amazon-signer.signpayload
+      outputParameters:
+      - type: object
+        mapping: $.

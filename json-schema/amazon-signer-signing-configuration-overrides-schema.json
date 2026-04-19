@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-configuration-overrides-schema.json",
+  "title": "SigningConfigurationOverrides",
+  "description": "A signing configuration that overrides the default encryption or hash algorithm of a signing job.",
+  "type": "object",
+  "properties": {
+    "encryptionAlgorithm": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "RSA",
+            "ECDSA"
+          ]
+        },
+        {
+          "description": "A specified override of the default encryption algorithm that is used in a code signing job."
+        }
+      ]
+    },
+    "hashAlgorithm": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "SHA1",
+            "SHA256"
+          ]
+        },
+        {
+          "description": "A specified override of the default hash algorithm that is used in a code signing job."
+        }
+      ]
+    }
+  }
+}

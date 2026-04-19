@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-s3-signed-object-structure.json",
+  "name": "S3SignedObject",
+  "description": "The S3 bucket name and key where code signing saved your signed code image.",
+  "properties": {
+    "bucketName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Name of the S3 bucket."
+        }
+      ]
+    },
+    "key": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Key name that uniquely identifies a signed code image in your bucket."
+        }
+      ]
+    }
+  }
+}

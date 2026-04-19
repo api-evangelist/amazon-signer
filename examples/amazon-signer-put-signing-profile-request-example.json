@@ -1,0 +1,8 @@
+{
+  "signingMaterial": "example-value",
+  "signatureValidityPeriod": "example-value",
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "overrides": "example-value",
+  "signingParameters": "example-value",
+  "tags": "example-value"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-tag-map-schema.json",
+  "title": "TagMap",
+  "description": "TagMap schema from AWS Signer API",
+  "type": "object",
+  "additionalProperties": {
+    "type": "string",
+    "maxLength": 256
+  }
+}

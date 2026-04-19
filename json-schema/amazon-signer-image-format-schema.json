@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-image-format-schema.json",
+  "title": "ImageFormat",
+  "description": "ImageFormat schema from AWS Signer API",
+  "type": "string",
+  "enum": [
+    "JSON",
+    "JSONEmbedded",
+    "JSONDetached"
+  ]
+}

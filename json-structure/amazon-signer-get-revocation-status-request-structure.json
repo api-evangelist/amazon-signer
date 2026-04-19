@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-get-revocation-status-request-structure.json",
+  "name": "GetRevocationStatusRequest",
+  "description": "GetRevocationStatusRequest schema from AWS Signer API",
+  "properties": {}
+}

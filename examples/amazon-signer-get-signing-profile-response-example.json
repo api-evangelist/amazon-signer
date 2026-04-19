@@ -1,0 +1,23 @@
+{
+  "profileName": "MySigningProfile",
+  "profileVersion": "MySigningProfile",
+  "profileVersionArn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile",
+  "revocationRecord": {
+    "revocationEffectiveFrom": "example-value",
+    "revokedAt": "example-value",
+    "revokedBy": "example-value"
+  },
+  "signingMaterial": "example-value",
+  "platformId": "AWSLambda-SHA384-ECDSA",
+  "platformDisplayName": "AWSLambda-SHA384-ECDSA",
+  "signatureValidityPeriod": {
+    "value": "example-value",
+    "type": "example-value"
+  },
+  "overrides": "example-value",
+  "signingParameters": "example-value",
+  "status": "Active",
+  "statusReason": "Active",
+  "arn": "arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile",
+  "tags": "example-value"
+}

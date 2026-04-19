@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-schema/amazon-signer-signing-platform-schema.json",
+  "title": "SigningPlatform",
+  "description": "Contains information about the signing configurations and parameters that are used to perform a code signing job.",
+  "type": "object",
+  "properties": {
+    "platformId": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The ID of a code signing platform."
+        }
+      ]
+    },
+    "displayName": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The display name of a code signing platform."
+        }
+      ]
+    },
+    "partner": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "Any partner entities linked to a code signing platform."
+        }
+      ]
+    },
+    "target": {
+      "allOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "The types of targets that can be signed by a code signing platform."
+        }
+      ]
+    },
+    "category": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": [
+            "AWSIoT"
+          ]
+        },
+        {
+          "description": "The category of a code signing platform."
+        }
+      ]
+    },
+    "signingConfiguration": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "encryptionAlgorithmOptions",
+            "hashAlgorithmOptions"
+          ],
+          "properties": {
+            "encryptionAlgorithmOptions": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EncryptionAlgorithmOptions"
+                },
+                {
+                  "description": "The encryption algorithm options that are available for a code signing job."
+                }
+              ]
+            },
+            "hashAlgorithmOptions": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/HashAlgorithmOptions"
+                },
+                {
+                  "description": "The hash algorithm options that are available for a code signing job."
+                }
+              ]
+            }
+          },
+          "description": "The configuration of a code signing operation."
+        },
+        {
+          "description": "The configuration of a code signing platform. This includes the designated hash algorithm and encryption algorithm of a signing platform."
+        }
+      ]
+    },
+    "signingImageFormat": {
+      "type": "object",
+      "required": [
+        "supportedFormats",
+        "defaultFormat"
+      ],
+      "properties": {
+        "supportedFormats": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ImageFormats"
+            },
+            {
+              "description": "The supported formats of a code signing image."
+            }
+          ]
+        },
+        "defaultFormat": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/ImageFormat"
+            },
+            {
+              "description": "The default format of a code signing image."
+            }
+          ]
+        }
+      },
+      "description": "The image format of a code signing platform or profile."
+    },
+    "maxSizeInMB": {
+      "allOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "description": "The maximum size (in MB) of code that can be signed by a code signing platform."
+        }
+      ]
+    },
+    "revocationSupported": {
+      "allOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "description": "Indicates whether revocation is supported for the platform."
+        }
+      ]
+    }
+  }
+}

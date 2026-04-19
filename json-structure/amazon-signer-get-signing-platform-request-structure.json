@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/json-structure/amazon-signer-get-signing-platform-request-structure.json",
+  "name": "GetSigningPlatformRequest",
+  "description": "GetSigningPlatformRequest schema from AWS Signer API",
+  "properties": {}
+}
