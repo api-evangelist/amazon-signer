@@ -113,6 +113,17 @@ common:
     description: Record and audit all API calls to AWS Signer for compliance.
   - name: AWS IoT Device Management
     description: Sign code for IoT devices managed by AWS IoT Device Management.
+- type: Integrations
+  url: https://aws.amazon.com/partners/
+integrations:
+  - name: Partner Programs
+  - name: Resources
+  - name: Success Stories
+  - name: Work with an AWS Partner
+  - name: AWS Marketplace
+  - name: AWS Partner Central
+  - name: Partner Paths
+  - name: co-sell with AWS
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
