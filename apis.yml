@@ -1,10 +1,8 @@
 aid: amazon-signer
 name: Amazon Signer
-description: >-
-  AWS Signer is a fully managed code-signing service to ensure the trust and
-  integrity of your code. It manages the code-signing certificate public and
-  private keys and enables central management and deployment of code signing
-  certificates for Lambda functions and IoT devices.
+description: AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your code. It manages
+  the code-signing certificate public and private keys and enables central management and deployment of code signing certificates
+  for Lambda functions and IoT devices.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -13,18 +11,15 @@ tags:
 - IoT
 - Lambda
 - Security
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-signer:aws-signer-api
   name: AWS Signer API
-  description: >-
-    The AWS Signer API provides programmatic access to create and manage
-    signing profiles, signing jobs, and signing platform permissions for
-    code signing of Lambda functions and IoT device software.
+  description: The AWS Signer API provides programmatic access to create and manage signing profiles, signing jobs, and signing
+    platform permissions for code signing of Lambda functions and IoT device software.
   humanURL: https://aws.amazon.com/signer/
   baseURL: https://signer.amazonaws.com
   tags:
@@ -42,6 +37,8 @@ apis:
     url: https://aws.amazon.com/signer/pricing/
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-signer.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/signer/
@@ -71,8 +68,6 @@ common:
   url: rules/amazon-signer-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-signer-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/amazon-signer.yaml
 - type: Features
   data:
   - name: Centralized Code Signing
@@ -116,14 +111,14 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/partners/
 integrations:
-  - name: Partner Programs
-  - name: Resources
-  - name: Success Stories
-  - name: Work with an AWS Partner
-  - name: AWS Marketplace
-  - name: AWS Partner Central
-  - name: Partner Paths
-  - name: co-sell with AWS
+- name: Partner Programs
+- name: Resources
+- name: Success Stories
+- name: Work with an AWS Partner
+- name: AWS Marketplace
+- name: AWS Partner Central
+- name: Partner Paths
+- name: co-sell with AWS
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
