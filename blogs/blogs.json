@@ -2,11 +2,13 @@
   "repo": "amazon-signer",
   "feeds": [
     {
-      "source": "https://aws.amazon.com/blogs/compute/tag/aws-signer/",
+      "source": "https://aws.amazon.com/premiumsupport/",
+      "feed_url": "https://aws.amazon.com/premiumsupport/",
+      "title": "",
       "saved": 0,
-      "error": "HTTP 404 Not Found"
+      "method": "none"
     }
   ],
   "post_count": 159,
-  "fetched": "2026-06-27T12:21:11Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
