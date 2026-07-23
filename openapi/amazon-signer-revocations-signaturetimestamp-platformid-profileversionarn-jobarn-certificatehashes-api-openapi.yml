@@ -1,0 +1,303 @@
+openapi: 3.0.0
+info:
+  version: '2017-08-25'
+  x-release: v4
+  title: AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes API
+  description: <p>AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code. </p> <p>AWS Signer supports the following applications:</p> <p>With code signing for AWS Lambda, you can sign <a href="http://docs.aws.amazon.com/lambda/latest/dg/">AWS Lambda</a> deployment packages. Integrated support is provided for <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/">Amazon S3</a>, <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/">Amazon CloudWatch</a>, and <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail</a>. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3. </p> <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p> <p>With code signing for containers …(TBD)</p> <p>For more information about AWS Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: signer
+  x-aws-signingName: signer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/signer-2017-08-25.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: https://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: http://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+- url: https://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+paths:
+  /revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetRevocationStatus
+      description: Retrieves the revocation status of one or more of the signing profile, signing job, and signing certificate.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRevocationStatusResponse'
+              examples:
+                GetRevocationStatus200Example:
+                  summary: Default GetRevocationStatus 200 response
+                  x-microcks-default: true
+                  value:
+                    revokedEntities: example-value
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                GetRevocationStatus480Example:
+                  summary: Default GetRevocationStatus 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                GetRevocationStatus481Example:
+                  summary: Default GetRevocationStatus 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                GetRevocationStatus482Example:
+                  summary: Default GetRevocationStatus 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                GetRevocationStatus483Example:
+                  summary: Default GetRevocationStatus 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: signatureTimestamp
+        in: query
+        required: true
+        description: The timestamp of the signature that validates the profile or job.
+        schema:
+          type: string
+          format: date-time
+      - name: platformId
+        in: query
+        required: true
+        description: 'The ID of a signing platform. '
+        schema:
+          type: string
+      - name: profileVersionArn
+        in: query
+        required: true
+        description: The version of a signing profile.
+        schema:
+          type: string
+          minLength: 20
+          maxLength: 2048
+      - name: jobArn
+        in: query
+        required: true
+        description: The ARN of a signing job.
+        schema:
+          type: string
+          minLength: 20
+          maxLength: 2048
+      - name: certificateHashes
+        in: query
+        required: true
+        description: <p>A list of composite signed hashes that identify certificates.</p> <p>A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root certificates are defined as their own CA.</p>
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/String'
+      summary: Amazon Get Revocation Status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    RevokedEntities:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    GetRevocationStatusResponse:
+      type: object
+      properties:
+        revokedEntities:
+          allOf:
+          - $ref: '#/components/schemas/RevokedEntities'
+          - description: A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API.
+    ValidationException: {}
+    TooManyRequestsException: {}
+    AccessDeniedException: {}
+    String:
+      type: string
+    InternalServiceErrorException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/signer/
+x-hasEquivalentPaths: true

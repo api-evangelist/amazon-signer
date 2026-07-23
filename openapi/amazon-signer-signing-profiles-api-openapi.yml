@@ -1,0 +1,1439 @@
+openapi: 3.0.0
+info:
+  version: '2017-08-25'
+  x-release: v4
+  title: AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Profiles API
+  description: <p>AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code. </p> <p>AWS Signer supports the following applications:</p> <p>With code signing for AWS Lambda, you can sign <a href="http://docs.aws.amazon.com/lambda/latest/dg/">AWS Lambda</a> deployment packages. Integrated support is provided for <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/">Amazon S3</a>, <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/">Amazon CloudWatch</a>, and <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail</a>. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3. </p> <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p> <p>With code signing for containers …(TBD)</p> <p>For more information about AWS Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: signer
+  x-aws-signingName: signer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/signer-2017-08-25.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: https://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: http://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+- url: https://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Signing Profiles
+paths:
+  /signing-profiles/{profileName}/permissions:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: AddProfilePermission
+      description: Adds cross-account permissions to a signing profile.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddProfilePermissionResponse'
+              examples:
+                AddProfilePermission200Example:
+                  summary: Default AddProfilePermission 200 response
+                  x-microcks-default: true
+                  value:
+                    revisionId: example-value
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                AddProfilePermission480Example:
+                  summary: Default AddProfilePermission 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                AddProfilePermission481Example:
+                  summary: Default AddProfilePermission 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                AddProfilePermission482Example:
+                  summary: Default AddProfilePermission 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: ServiceLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceLimitExceededException'
+              examples:
+                AddProfilePermission483Example:
+                  summary: Default AddProfilePermission 483 response
+                  x-microcks-default: true
+                  value: example-value
+        '484':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+              examples:
+                AddProfilePermission484Example:
+                  summary: Default AddProfilePermission 484 response
+                  x-microcks-default: true
+                  value: example-value
+        '485':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                AddProfilePermission485Example:
+                  summary: Default AddProfilePermission 485 response
+                  x-microcks-default: true
+                  value: example-value
+        '486':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                AddProfilePermission486Example:
+                  summary: Default AddProfilePermission 486 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: The human-readable name of the signing profile.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - principal
+              - statementId
+              properties:
+                profileVersion:
+                  description: The version of the signing profile.
+                  type: string
+                  pattern: ^[a-zA-Z0-9]{10}$
+                  minLength: 10
+                  maxLength: 10
+                action:
+                  description: The AWS Signer action permitted as part of cross-account permissions.
+                  type: string
+                principal:
+                  description: The AWS principal receiving cross-account permissions. This may be an IAM role or another AWS account ID.
+                  type: string
+                revisionId:
+                  description: A unique identifier for the current profile revision.
+                  type: string
+                statementId:
+                  description: A unique identifier for the cross-account permission statement.
+                  type: string
+            examples:
+              AddProfilePermissionRequestExample:
+                summary: Default AddProfilePermission request
+                x-microcks-default: true
+                value:
+                  profileVersion: MySigningProfile
+                  action: example-value
+                  principal: example-value
+                  revisionId: example-value
+                  statementId: example-value
+      summary: Amazon Add Profile Permission
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+    get:
+      operationId: ListProfilePermissions
+      description: Lists the cross-account permissions associated with a signing profile.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProfilePermissionsResponse'
+              examples:
+                ListProfilePermissions200Example:
+                  summary: Default ListProfilePermissions 200 response
+                  x-microcks-default: true
+                  value:
+                    revisionId: example-value
+                    policySizeBytes: example-value
+                    permissions: example-value
+                    nextToken: example-value
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                ListProfilePermissions480Example:
+                  summary: Default ListProfilePermissions 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                ListProfilePermissions481Example:
+                  summary: Default ListProfilePermissions 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                ListProfilePermissions482Example:
+                  summary: Default ListProfilePermissions 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                ListProfilePermissions483Example:
+                  summary: Default ListProfilePermissions 483 response
+                  x-microcks-default: true
+                  value: example-value
+        '484':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                ListProfilePermissions484Example:
+                  summary: Default ListProfilePermissions 484 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: Name of the signing profile containing the cross-account permissions.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      - name: nextToken
+        in: query
+        required: false
+        description: String for specifying the next set of paginated results.
+        schema:
+          type: string
+      summary: Amazon List Profile Permissions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+  /signing-profiles/{profileName}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: CancelSigningProfile
+      description: Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs, and is deleted two years after cancelation.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                CancelSigningProfile480Example:
+                  summary: Default CancelSigningProfile 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                CancelSigningProfile481Example:
+                  summary: Default CancelSigningProfile 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                CancelSigningProfile482Example:
+                  summary: Default CancelSigningProfile 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                CancelSigningProfile483Example:
+                  summary: Default CancelSigningProfile 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: The name of the signing profile to be canceled.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      summary: Amazon Cancel Signing Profile
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+    get:
+      operationId: GetSigningProfile
+      description: Returns information on a specific signing profile.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSigningProfileResponse'
+              examples:
+                GetSigningProfile200Example:
+                  summary: Default GetSigningProfile 200 response
+                  x-microcks-default: true
+                  value:
+                    profileName: MySigningProfile
+                    profileVersion: MySigningProfile
+                    profileVersionArn: arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile
+                    revocationRecord:
+                      revocationEffectiveFrom: example-value
+                      revokedAt: example-value
+                      revokedBy: example-value
+                    signingMaterial: example-value
+                    platformId: AWSLambda-SHA384-ECDSA
+                    platformDisplayName: AWSLambda-SHA384-ECDSA
+                    signatureValidityPeriod:
+                      value: example-value
+                      type: example-value
+                    overrides: example-value
+                    signingParameters: example-value
+                    status: Active
+                    statusReason: Active
+                    arn: arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile
+                    tags: example-value
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                GetSigningProfile480Example:
+                  summary: Default GetSigningProfile 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                GetSigningProfile481Example:
+                  summary: Default GetSigningProfile 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                GetSigningProfile482Example:
+                  summary: Default GetSigningProfile 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                GetSigningProfile483Example:
+                  summary: Default GetSigningProfile 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: The name of the target signing profile.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      - name: profileOwner
+        in: query
+        required: false
+        description: The AWS account ID of the profile owner.
+        schema:
+          type: string
+          pattern: ^[0-9]{12}$
+          minLength: 12
+          maxLength: 12
+      summary: Amazon Get Signing Profile
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+    put:
+      operationId: PutSigningProfile
+      description: 'Creates a signing profile. A signing profile is a code signing template that can be used to carry out a pre-defined signing job. '
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutSigningProfileResponse'
+              examples:
+                PutSigningProfile200Example:
+                  summary: Default PutSigningProfile 200 response
+                  x-microcks-default: true
+                  value:
+                    arn: arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile
+                    profileVersion: MySigningProfile
+                    profileVersionArn: arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                PutSigningProfile480Example:
+                  summary: Default PutSigningProfile 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                PutSigningProfile481Example:
+                  summary: Default PutSigningProfile 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                PutSigningProfile482Example:
+                  summary: Default PutSigningProfile 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                PutSigningProfile483Example:
+                  summary: Default PutSigningProfile 483 response
+                  x-microcks-default: true
+                  value: example-value
+        '484':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                PutSigningProfile484Example:
+                  summary: Default PutSigningProfile 484 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: The name of the signing profile to be created.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - platformId
+              properties:
+                signingMaterial:
+                  description: The ACM certificate that is used to sign your code.
+                  type: object
+                  properties:
+                    certificateArn:
+                      allOf:
+                      - $ref: '#/components/schemas/CertificateArn'
+                      - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+                signatureValidityPeriod:
+                  description: The validity period for a signing job.
+                  type: object
+                  properties:
+                    value:
+                      allOf:
+                      - $ref: '#/components/schemas/Integer'
+                      - description: The numerical value of the time unit for signature validity.
+                    type:
+                      allOf:
+                      - $ref: '#/components/schemas/ValidityType'
+                      - description: The time unit for signature validity.
+                platformId:
+                  description: The ID of the signing platform to be created.
+                  type: string
+                overrides:
+                  description: Any overrides that are applied to the signing configuration of a code signing platform.
+                  type: object
+                  properties:
+                    signingConfiguration:
+                      allOf:
+                      - $ref: '#/components/schemas/SigningConfigurationOverrides'
+                      - description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
+                    signingImageFormat:
+                      allOf:
+                      - $ref: '#/components/schemas/ImageFormat'
+                      - description: A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image.
+                signingParameters:
+                  description: Map of key-value pairs for signing. These can include any information that you want to use during signing.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/SigningParameterValue'
+                tags:
+                  description: Tags to be associated with the signing profile that is being created.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 200
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+            examples:
+              PutSigningProfileRequestExample:
+                summary: Default PutSigningProfile request
+                x-microcks-default: true
+                value:
+                  signingMaterial:
+                    certificateArn: arn:aws:signer:us-east-1:123456789012:signing-profiles/MyProfile
+                  signatureValidityPeriod:
+                    value: example-value
+                    type: example-value
+                  platformId: AWSLambda-SHA384-ECDSA
+                  overrides:
+                    signingConfiguration: example-value
+                    signingImageFormat: example-value
+                  signingParameters: {}
+                  tags: {}
+      summary: Amazon Put Signing Profile
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+  /signing-profiles:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListSigningProfiles
+      description: Lists all available signing profiles in your AWS account. Returns only profiles with an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is set to <code>true</code>. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that code signing returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSigningProfilesResponse'
+              examples:
+                ListSigningProfiles200Example:
+                  summary: Default ListSigningProfiles 200 response
+                  x-microcks-default: true
+                  value:
+                    profiles: MySigningProfile
+                    nextToken: example-value
+        '480':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                ListSigningProfiles480Example:
+                  summary: Default ListSigningProfiles 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                ListSigningProfiles481Example:
+                  summary: Default ListSigningProfiles 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                ListSigningProfiles482Example:
+                  summary: Default ListSigningProfiles 482 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: includeCanceled
+        in: query
+        required: false
+        description: Designates whether to include profiles with the status of <code>CANCELED</code>.
+        schema:
+          type: boolean
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of profiles to be returned.
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.
+        schema:
+          type: string
+      - name: platformId
+        in: query
+        required: false
+        description: Filters results to return only signing jobs initiated for a specified signing platform.
+        schema:
+          type: string
+      - name: statuses
+        in: query
+        required: false
+        description: Filters results to return only signing jobs with statuses in the specified list.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/SigningProfileStatus'
+      summary: Amazon List Signing Profiles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+  /signing-profiles/{profileName}/permissions/{statementId}#revisionId:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: RemoveProfilePermission
+      description: Removes cross-account permissions from a signing profile.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveProfilePermissionResponse'
+              examples:
+                RemoveProfilePermission200Example:
+                  summary: Default RemoveProfilePermission 200 response
+                  x-microcks-default: true
+                  value:
+                    revisionId: example-value
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                RemoveProfilePermission480Example:
+                  summary: Default RemoveProfilePermission 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                RemoveProfilePermission481Example:
+                  summary: Default RemoveProfilePermission 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                RemoveProfilePermission482Example:
+                  summary: Default RemoveProfilePermission 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+              examples:
+                RemoveProfilePermission483Example:
+                  summary: Default RemoveProfilePermission 483 response
+                  x-microcks-default: true
+                  value: example-value
+        '484':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                RemoveProfilePermission484Example:
+                  summary: Default RemoveProfilePermission 484 response
+                  x-microcks-default: true
+                  value: example-value
+        '485':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                RemoveProfilePermission485Example:
+                  summary: Default RemoveProfilePermission 485 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: A human-readable name for the signing profile with permissions to be removed.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      - name: revisionId
+        in: query
+        required: true
+        description: An identifier for the current revision of the signing profile permissions.
+        schema:
+          type: string
+      - name: statementId
+        in: path
+        required: true
+        description: A unique identifier for the cross-account permissions statement.
+        schema:
+          type: string
+      summary: Amazon Remove Profile Permission
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+  /signing-profiles/{profileName}/revoke:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: RevokeSigningProfile
+      description: Changes the state of a signing profile to REVOKED. This indicates that signatures generated using the signing profile after an effective start date are no longer valid.
+      responses:
+        '200':
+          description: Success
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                RevokeSigningProfile480Example:
+                  summary: Default RevokeSigningProfile 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+              examples:
+                RevokeSigningProfile481Example:
+                  summary: Default RevokeSigningProfile 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+              examples:
+                RevokeSigningProfile482Example:
+                  summary: Default RevokeSigningProfile 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                RevokeSigningProfile483Example:
+                  summary: Default RevokeSigningProfile 483 response
+                  x-microcks-default: true
+                  value: example-value
+        '484':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                RevokeSigningProfile484Example:
+                  summary: Default RevokeSigningProfile 484 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: profileName
+        in: path
+        required: true
+        description: The name of the signing profile to be revoked.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9_]{2,}
+          minLength: 2
+          maxLength: 64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - profileVersion
+              - reason
+              - effectiveTime
+              properties:
+                profileVersion:
+                  description: The version of the signing profile to be revoked.
+                  type: string
+                  pattern: ^[a-zA-Z0-9]{10}$
+                  minLength: 10
+                  maxLength: 10
+                reason:
+                  description: The reason for revoking a signing profile.
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+                effectiveTime:
+                  description: A timestamp for when revocation of a Signing Profile should become effective. Signatures generated using the signing profile after this timestamp are not trusted.
+                  type: string
+                  format: date-time
+            examples:
+              RevokeSigningProfileRequestExample:
+                summary: Default RevokeSigningProfile request
+                x-microcks-default: true
+                value:
+                  profileVersion: MySigningProfile
+                  reason: example-value
+                  effectiveTime: '2025-03-15T14:30:00Z'
+      summary: Amazon Revoke Signing Profile
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Signing Profiles
+components:
+  schemas:
+    string:
+      type: string
+    SigningProfileStatus:
+      type: string
+      enum:
+      - Active
+      - Canceled
+      - Revoked
+    ProfileName:
+      type: string
+      pattern: ^[a-zA-Z0-9_]{2,}
+      minLength: 2
+      maxLength: 64
+    PolicySizeBytes:
+      type: integer
+    PutSigningProfileResponse:
+      type: object
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/string'
+          - description: The Amazon Resource Name (ARN) of the signing profile created.
+        profileVersion:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The version of the signing profile being created.
+        profileVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The signing profile ARN, including the profile version.
+    Integer:
+      type: integer
+    String:
+      type: string
+    InternalServiceErrorException: {}
+    CertificateArn:
+      type: string
+    ListProfilePermissionsResponse:
+      type: object
+      properties:
+        revisionId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The identifier for the current revision of profile permissions.
+        policySizeBytes:
+          allOf:
+          - $ref: '#/components/schemas/PolicySizeBytes'
+          - description: Total size of the policy associated with the Signing Profile in bytes.
+        permissions:
+          allOf:
+          - $ref: '#/components/schemas/Permissions'
+          - description: List of permissions associated with the Signing Profile.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: String for specifying the next set of paginated results.
+    NextToken:
+      type: string
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    Arn:
+      type: string
+      minLength: 20
+      maxLength: 2048
+    DisplayName:
+      type: string
+    ListSigningProfilesResponse:
+      type: object
+      properties:
+        profiles:
+          allOf:
+          - $ref: '#/components/schemas/SigningProfiles'
+          - description: A list of profiles that are available in the AWS account. This includes profiles with the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set to <code>true</code>.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Value for specifying the next set of paginated results to return.
+    PlatformId:
+      type: string
+    AccessDeniedException: {}
+    ProfileVersion:
+      type: string
+      pattern: ^[a-zA-Z0-9]{10}$
+      minLength: 10
+      maxLength: 10
+    ImageFormat:
+      type: string
+      enum:
+      - JSON
+      - JSONEmbedded
+      - JSONDetached
+    SigningProfileRevocationRecord:
+      type: object
+      properties:
+        revocationEffectiveFrom:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when revocation becomes effective.
+        revokedAt:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The time when the signing profile was revoked.
+        revokedBy:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The identity of the revoker.
+      description: Revocation information for a signing profile.
+    SignatureValidityPeriod:
+      type: object
+      properties:
+        value:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The numerical value of the time unit for signature validity.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ValidityType'
+          - description: The time unit for signature validity.
+      description: The validity period for a signing job.
+    AddProfilePermissionResponse:
+      type: object
+      properties:
+        revisionId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A unique identifier for the current profile revision.
+    Permission:
+      type: object
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An AWS Signer action permitted as part of cross-account permissions.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The AWS principal that has been granted a cross-account permission.
+        statementId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A unique identifier for a cross-account permission statement.
+        profileVersion:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The signing profile version that a permission applies to.
+      description: A cross-account permission for a signing profile.
+    ValidityType:
+      type: string
+      enum:
+      - DAYS
+      - MONTHS
+      - YEARS
+    SigningMaterial:
+      type: object
+      required:
+      - certificateArn
+      properties:
+        certificateArn:
+          allOf:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+      description: The ACM certificate that is used to sign your code.
+    ResourceNotFoundException: {}
+    SigningPlatformOverrides:
+      type: object
+      properties:
+        signingConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/SigningConfigurationOverrides'
+          - description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
+        signingImageFormat:
+          allOf:
+          - $ref: '#/components/schemas/ImageFormat'
+          - description: A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image.
+      description: Any overrides that are applied to the signing configuration of a code signing platform.
+    ConflictException: {}
+    SigningProfiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/SigningProfile'
+    SigningParameterValue:
+      type: string
+    RemoveProfilePermissionResponse:
+      type: object
+      properties:
+        revisionId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An identifier for the current revision of the profile permissions.
+    SigningProfile:
+      type: object
+      properties:
+        profileName:
+          allOf:
+          - $ref: '#/components/schemas/ProfileName'
+          - description: The name of the signing profile.
+        profileVersion:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The version of a signing profile.
+        profileVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The ARN of a signing profile, including the profile version.
+        signingMaterial:
+          allOf:
+          - $ref: '#/components/schemas/SigningMaterial'
+          - description: The ACM certificate that is available for use by a signing profile.
+        signatureValidityPeriod:
+          allOf:
+          - $ref: '#/components/schemas/SignatureValidityPeriod'
+          - description: The validity period for a signing job created using this signing profile.
+        platformId:
+          allOf:
+          - $ref: '#/components/schemas/PlatformId'
+          - description: The ID of a platform that is available for use by a signing profile.
+        platformDisplayName:
+          allOf:
+          - $ref: '#/components/schemas/DisplayName'
+          - description: The name of the signing platform.
+        signingParameters:
+          allOf:
+          - $ref: '#/components/schemas/SigningParameters'
+          - description: The parameters that are available for use by a code signing user.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SigningProfileStatus'
+          - description: The status of a code signing profile.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/string'
+          - description: The Amazon Resource Name (ARN) for the signing profile.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A list of tags associated with the signing profile.
+      description: Contains information about the ACM certificates and code signing configuration parameters that can be used by a given code signing user.
+    Permissions:
+      type: array
+      items:
+        $ref: '#/components/schemas/Permission'
+    SigningParameters:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/SigningParameterValue'
+    GetSigningProfileResponse:
+      type: object
+      properties:
+        profileName:
+          allOf:
+          - $ref: '#/components/schemas/ProfileName'
+          - description: The name of the target signing profile.
+        profileVersion:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The current version of the signing profile.
+        profileVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The signing profile ARN, including the profile version.
+        revocationRecord:
+          $ref: '#/components/schemas/SigningProfileRevocationRecord'
+        signingMaterial:
+          allOf:
+          - $ref: '#/components/schemas/SigningMaterial'
+          - description: The ARN of the certificate that the target profile uses for signing operations.
+        platformId:
+          allOf:
+          - $ref: '#/components/schemas/PlatformId'
+          - description: The ID of the platform that is used by the target signing profile.
+        platformDisplayName:
+          allOf:
+          - $ref: '#/components/schemas/DisplayName'
+          - description: A human-readable name for the signing platform associated with the signing profile.
+        signatureValidityPeriod:
+          $ref: '#/components/schemas/SignatureValidityPeriod'
+        overrides:
+          allOf:
+          - $ref: '#/components/schemas/SigningPlatformOverrides'
+          - description: A list of overrides applied by the target signing profile for signing operations.
+        signingParameters:
+          allOf:
+          - $ref: '#/components/schemas/SigningParameters'
+          - description: A map of key-value pairs for signing operations that is attached to the target signing profile.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SigningProfileStatus'
+          - description: The status of the target signing profile.
+        statusReason:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Reason for the status of the target signing profile.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/string'
+          - description: The Amazon Resource Name (ARN) for the signing profile.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A list of tags associated with the signing profile.
+    ValidationException: {}
+    HashAlgorithm:
+      type: string
+      enum:
+      - SHA1
+      - SHA256
+    TooManyRequestsException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    TagValue:
+      type: string
+      maxLength: 256
+    SigningConfigurationOverrides:
+      type: object
+      properties:
+        encryptionAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithm'
+          - description: A specified override of the default encryption algorithm that is used in a code signing job.
+        hashAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithm'
+          - description: A specified override of the default hash algorithm that is used in a code signing job.
+      description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
+    ServiceLimitExceededException: {}
+    EncryptionAlgorithm:
+      type: string
+      enum:
+      - RSA
+      - ECDSA
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/signer/
+x-hasEquivalentPaths: true

@@ -1,0 +1,471 @@
+openapi: 3.0.0
+info:
+  version: '2017-08-25'
+  x-release: v4
+  title: AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Tags API
+  description: <p>AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code. </p> <p>AWS Signer supports the following applications:</p> <p>With code signing for AWS Lambda, you can sign <a href="http://docs.aws.amazon.com/lambda/latest/dg/">AWS Lambda</a> deployment packages. Integrated support is provided for <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/">Amazon S3</a>, <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/">Amazon CloudWatch</a>, and <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail</a>. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3. </p> <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p> <p>With code signing for containers …(TBD)</p> <p>For more information about AWS Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: signer
+  x-aws-signingName: signer
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/signer-2017-08-25.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: https://signer.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The signer multi-region endpoint
+- url: http://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+- url: https://signer.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The signer endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Tags
+paths:
+  /tags/{resourceArn}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListTagsForResource
+      description: Returns a list of the tags associated with a signing profile resource.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTagsForResourceResponse'
+              examples:
+                ListTagsForResource200Example:
+                  summary: Default ListTagsForResource 200 response
+                  x-microcks-default: true
+                  value:
+                    tags: example-value
+        '480':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                ListTagsForResource480Example:
+                  summary: Default ListTagsForResource 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+              examples:
+                ListTagsForResource481Example:
+                  summary: Default ListTagsForResource 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                ListTagsForResource482Example:
+                  summary: Default ListTagsForResource 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                ListTagsForResource483Example:
+                  summary: Default ListTagsForResource 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The Amazon Resource Name (ARN) for the signing profile.
+        schema:
+          type: string
+      summary: Amazon List Tags For Resource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+    post:
+      operationId: TagResource
+      description: Adds one or more tags to a signing profile. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value pair.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResourceResponse'
+              examples:
+                TagResource200Example:
+                  summary: Default TagResource 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                TagResource480Example:
+                  summary: Default TagResource 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+              examples:
+                TagResource481Example:
+                  summary: Default TagResource 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                TagResource482Example:
+                  summary: Default TagResource 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                TagResource483Example:
+                  summary: Default TagResource 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The Amazon Resource Name (ARN) for the signing profile.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - tags
+              properties:
+                tags:
+                  description: One or more tags to be associated with the signing profile.
+                  type: object
+                  minProperties: 1
+                  maxProperties: 200
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+            examples:
+              TagResourceRequestExample:
+                summary: Default TagResource request
+                x-microcks-default: true
+                value:
+                  tags: {}
+      summary: Amazon Tag Resource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+  /tags/{resourceArn}#tagKeys:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: UntagResource
+      description: Removes one or more tags from a signing profile. To remove the tags, specify a list of tag keys.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UntagResourceResponse'
+              examples:
+                UntagResource200Example:
+                  summary: Default UntagResource 200 response
+                  x-microcks-default: true
+                  value: {}
+        '480':
+          description: InternalServiceErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServiceErrorException'
+              examples:
+                UntagResource480Example:
+                  summary: Default UntagResource 480 response
+                  x-microcks-default: true
+                  value: example-value
+        '481':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+              examples:
+                UntagResource481Example:
+                  summary: Default UntagResource 481 response
+                  x-microcks-default: true
+                  value: example-value
+        '482':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                UntagResource482Example:
+                  summary: Default UntagResource 482 response
+                  x-microcks-default: true
+                  value: example-value
+        '483':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                UntagResource483Example:
+                  summary: Default UntagResource 483 response
+                  x-microcks-default: true
+                  value: example-value
+      parameters:
+      - name: resourceArn
+        in: path
+        required: true
+        description: The Amazon Resource Name (ARN) for the signing profile.
+        schema:
+          type: string
+      - name: tagKeys
+        in: query
+        required: true
+        description: A list of tag keys to be removed from the signing profile.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagKey'
+          minItems: 1
+          maxItems: 200
+      summary: Amazon Untag Resource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
+      minLength: 1
+      maxLength: 128
+    NotFoundException: {}
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    BadRequestException: {}
+    TooManyRequestsException: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A list of tags associated with the signing profile.
+    TagResourceResponse:
+      type: object
+      properties: {}
+    InternalServiceErrorException: {}
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/signer/
+x-hasEquivalentPaths: true
