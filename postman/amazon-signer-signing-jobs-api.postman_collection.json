@@ -1,0 +1,3036 @@
+{
+  "info": {
+    "_postman_id": "12a5e32b-9593-4099-836d-57bf69ebbdc1",
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Jobs API",
+    "description": "<p>AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code. </p> <p>AWS Signer supports the following applications:</p> <p>With code signing for AWS Lambda, you can sign <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/\">AWS Lambda</a> deployment packages. Integrated support is provided for <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/\">Amazon S3</a>, <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/\">Amazon CloudWatch</a>, and <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/\">AWS CloudTrail</a>. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3. </p> <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for <a href=\"http://docs.aws.amazon.com/freertos/latest/userguide/\">Amazon FreeRTOS</a> and <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/\">AWS IoT Device Management</a>, and is integrated with <a href=\"http://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p> <p>With code signing for containers \u2026(TBD)</p> <p>For more information about AWS Signer, see the <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html\">AWS Signer Developer Guide</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:43:55.000Z",
+    "updatedAt": "2026-07-28T10:43:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-12a5e32b-9593-4099-836d-57bf69ebbdc1"
+  },
+  "item": [
+    {
+      "name": "signing-jobs",
+      "item": [
+        {
+          "name": "{jobId}",
+          "item": [
+            {
+              "name": "revoke",
+              "item": [
+                {
+                  "name": "Amazon Revoke Signature",
+                  "id": "bb87824c-fab2-4b6e-b75c-00c1bb310d27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId",
+                        "revoke"
+                      ],
+                      "variable": [
+                        {
+                          "id": "82c6c404-c704-4738-a1ba-98e41e649d87",
+                          "key": "jobId",
+                          "value": "<string>",
+                          "description": "(Required) ID of the signing job to be revoked."
+                        }
+                      ]
+                    },
+                    "description": "Changes the state of a signing job to REVOKED. This indicates that the signature is no longer valid."
+                  },
+                  "response": [
+                    {
+                      "id": "c9f11169-2c3e-43d5-a92e-4d3ea1a92e29",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-c9f11169-2c3e-43d5-a92e-4d3ea1a92e29"
+                    },
+                    {
+                      "id": "4e0ab1d4-3133-48ce-b596-3931a12272ec",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-4e0ab1d4-3133-48ce-b596-3931a12272ec"
+                    },
+                    {
+                      "id": "8899a930-ce82-458d-bf11-dfcf24424d6e",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-8899a930-ce82-458d-bf11-dfcf24424d6e"
+                    },
+                    {
+                      "id": "6bdcf47b-e137-4b35-88ae-d5fb2f109dda",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-6bdcf47b-e137-4b35-88ae-d5fb2f109dda"
+                    },
+                    {
+                      "id": "58740b4c-37c0-4602-a6cd-7b09503eb9a9",
+                      "name": "TooManyRequestsException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-58740b4c-37c0-4602-a6cd-7b09503eb9a9"
+                    },
+                    {
+                      "id": "c150f15c-3cdf-4c24-b272-eb1accb875ed",
+                      "name": "InternalServiceErrorException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reason\": \"<string>\",\n  \"jobOwner\": \"287935937416\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signing-jobs/:jobId/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signing-jobs",
+                            ":jobId",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "key": "jobId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:43:56.000Z",
+                      "updatedAt": "2026-07-28T10:43:56.000Z",
+                      "uid": "35240-c150f15c-3cdf-4c24-b272-eb1accb875ed"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-bb87824c-fab2-4b6e-b75c-00c1bb310d27"
+                }
+              ],
+              "id": "ef2c3c23-2a8f-4519-af39-4e8e12460fd8",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-ef2c3c23-2a8f-4519-af39-4e8e12460fd8"
+            },
+            {
+              "name": "Amazon Describe Signing Job",
+              "id": "51c7e083-753a-421d-8b04-17337dbf2442",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs",
+                    ":jobId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e19354bb-ca15-4a1d-8607-90228c59e525",
+                      "key": "jobId",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the signing job on input."
+                    }
+                  ]
+                },
+                "description": "Returns information about a specific code signing job. You specify the job by using the <code>jobId</code> value that is returned by the <a>StartSigningJob</a> operation. "
+              },
+              "response": [
+                {
+                  "id": "ee83c591-a428-443a-90d0-5267dd99b0a3",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"jobId\": \"<string>\",\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"signingMaterial\": {\n    \"certificateArn\": \"<string>\"\n  },\n  \"platformId\": \"<string>\",\n  \"platformDisplayName\": \"<string>\",\n  \"profileName\": \"dI6t227Cqa\",\n  \"profileVersion\": \"976vKkMAzO\",\n  \"overrides\": {\n    \"signingConfiguration\": {\n      \"encryptionAlgorithm\": \"ECDSA\",\n      \"hashAlgorithm\": \"SHA1\"\n    },\n    \"signingImageFormat\": \"JSONEmbedded\"\n  },\n  \"signingParameters\": {\n    \"ametbe\": \"<string>\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"completedAt\": \"<dateTime>\",\n  \"signatureExpiresAt\": \"<dateTime>\",\n  \"requestedBy\": \"<string>\",\n  \"status\": \"InProgress\",\n  \"statusReason\": \"<string>\",\n  \"revocationRecord\": {\n    \"reason\": \"<string>\",\n    \"revokedAt\": \"<dateTime>\",\n    \"revokedBy\": \"<string>\"\n  },\n  \"signedObject\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\"\n    }\n  },\n  \"jobOwner\": \"630531274936\",\n  \"jobInvoker\": \"755557388611\"\n}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-ee83c591-a428-443a-90d0-5267dd99b0a3"
+                },
+                {
+                  "id": "81ab35bb-2d83-441e-93b5-a60a425075cf",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-81ab35bb-2d83-441e-93b5-a60a425075cf"
+                },
+                {
+                  "id": "bc1c228f-b221-45ad-9b95-a6914306e8ac",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-bc1c228f-b221-45ad-9b95-a6914306e8ac"
+                },
+                {
+                  "id": "dd737f7c-263f-4f85-827e-b756bc76b953",
+                  "name": "TooManyRequestsException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-dd737f7c-263f-4f85-827e-b756bc76b953"
+                },
+                {
+                  "id": "fcc68e47-157c-4e1b-87b6-e7d1bcc43e06",
+                  "name": "InternalServiceErrorException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-fcc68e47-157c-4e1b-87b6-e7d1bcc43e06"
+                }
+              ],
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-51c7e083-753a-421d-8b04-17337dbf2442"
+            }
+          ],
+          "id": "38fd7592-434b-4f1c-bebf-b8453f7b6e77",
+          "createdAt": "2026-07-28T10:43:56.000Z",
+          "updatedAt": "2026-07-28T10:43:56.000Z",
+          "uid": "35240-38fd7592-434b-4f1c-bebf-b8453f7b6e77"
+        },
+        {
+          "name": "with-payload",
+          "item": [
+            {
+              "name": "Amazon Sign Payload",
+              "id": "f32ffcda-76c0-4d84-8ffd-3c9e97253595",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs",
+                    "with-payload"
+                  ]
+                },
+                "description": "Signs a binary payload and returns a signature envelope."
+              },
+              "response": [
+                {
+                  "id": "d15d6b94-3772-48b2-b8c2-0944323039d7",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"jobId\": \"<string>\",\n  \"jobOwner\": \"747148672140\",\n  \"metadata\": {\n    \"aliquip_0e9\": \"<string>\",\n    \"Excepteur_b96\": \"<string>\"\n  },\n  \"signature\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-d15d6b94-3772-48b2-b8c2-0944323039d7"
+                },
+                {
+                  "id": "58952684-f2fc-4ef1-b7e7-4c7e1f4196fd",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-58952684-f2fc-4ef1-b7e7-4c7e1f4196fd"
+                },
+                {
+                  "id": "e595f0db-309d-42aa-a6ae-8ccb12ec18ec",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-e595f0db-309d-42aa-a6ae-8ccb12ec18ec"
+                },
+                {
+                  "id": "2d1cb609-c987-44be-b0e8-b00488fd9ac0",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-2d1cb609-c987-44be-b0e8-b00488fd9ac0"
+                },
+                {
+                  "id": "c9a17222-2167-4d5d-a72c-20d3e118b19e",
+                  "name": "TooManyRequestsException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-c9a17222-2167-4d5d-a72c-20d3e118b19e"
+                },
+                {
+                  "id": "8cf78227-1590-414a-822e-b09283fbbd58",
+                  "name": "InternalServiceErrorException",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileName\": \"MRtrlL\",\n  \"payload\": \"<string>\",\n  \"payloadFormat\": \"<string>\",\n  \"profileOwner\": \"020022367654\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signing-jobs/with-payload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signing-jobs",
+                        "with-payload"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:43:56.000Z",
+                  "updatedAt": "2026-07-28T10:43:56.000Z",
+                  "uid": "35240-8cf78227-1590-414a-822e-b09283fbbd58"
+                }
+              ],
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-f32ffcda-76c0-4d84-8ffd-3c9e97253595"
+            }
+          ],
+          "id": "3495b70e-8b7b-4a37-84c1-94ef9f2750b1",
+          "createdAt": "2026-07-28T10:43:56.000Z",
+          "updatedAt": "2026-07-28T10:43:56.000Z",
+          "uid": "35240-3495b70e-8b7b-4a37-84c1-94ef9f2750b1"
+        },
+        {
+          "name": "Amazon List Signing Jobs",
+          "id": "639bf7bb-aa27-403d-8784-9094c5798516",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signing-jobs"
+              ],
+              "query": [
+                {
+                  "description": "A status value with which to filter your results.",
+                  "key": "status",
+                  "value": "InProgress"
+                },
+                {
+                  "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                  "key": "platformId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IAM principal that requested the signing job.",
+                  "key": "requestedBy",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                  "key": "nextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters results to return only signing jobs with revoked signatures.",
+                  "key": "isRevoked",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                  "key": "signatureExpiresBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                  "key": "signatureExpiresAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                  "key": "jobInvoker",
+                  "value": "615009848088"
+                }
+              ]
+            },
+            "description": "Lists all your signing jobs. You can use the <code>maxResults</code> parameter to limit the number of signing jobs that are returned in the response. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that code signing returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned. "
+          },
+          "response": [
+            {
+              "id": "7577bec9-8e1a-4f15-b637-f9ee5c3f2ecd",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "A status value with which to filter your results.",
+                      "key": "status",
+                      "value": "InProgress"
+                    },
+                    {
+                      "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                      "key": "platformId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IAM principal that requested the signing job.",
+                      "key": "requestedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with revoked signatures.",
+                      "key": "isRevoked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                      "key": "signatureExpiresBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                      "key": "signatureExpiresAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                      "key": "jobInvoker",
+                      "value": "615009848088"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"jobs\": [\n    {\n      \"jobId\": \"<string>\",\n      \"source\": {\n        \"s3\": {\n          \"bucketName\": \"<string>\",\n          \"key\": \"<string>\",\n          \"version\": \"<string>\"\n        }\n      },\n      \"signedObject\": {\n        \"s3\": {\n          \"bucketName\": \"<string>\",\n          \"key\": \"<string>\"\n        }\n      },\n      \"signingMaterial\": {\n        \"certificateArn\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"status\": \"InProgress\",\n      \"isRevoked\": \"<boolean>\",\n      \"profileName\": \"kDTH1ZJov\",\n      \"profileVersion\": \"jkKHw9nbF9\",\n      \"platformId\": \"<string>\",\n      \"platformDisplayName\": \"<string>\",\n      \"signatureExpiresAt\": \"<dateTime>\",\n      \"jobOwner\": \"742652365620\",\n      \"jobInvoker\": \"239477440357\"\n    },\n    {\n      \"jobId\": \"<string>\",\n      \"source\": {\n        \"s3\": {\n          \"bucketName\": \"<string>\",\n          \"key\": \"<string>\",\n          \"version\": \"<string>\"\n        }\n      },\n      \"signedObject\": {\n        \"s3\": {\n          \"bucketName\": \"<string>\",\n          \"key\": \"<string>\"\n        }\n      },\n      \"signingMaterial\": {\n        \"certificateArn\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"status\": \"InProgress\",\n      \"isRevoked\": \"<boolean>\",\n      \"profileName\": \"5r9\",\n      \"profileVersion\": \"GX76dDyXl3\",\n      \"platformId\": \"<string>\",\n      \"platformDisplayName\": \"<string>\",\n      \"signatureExpiresAt\": \"<dateTime>\",\n      \"jobOwner\": \"694905659945\",\n      \"jobInvoker\": \"622036459099\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-7577bec9-8e1a-4f15-b637-f9ee5c3f2ecd"
+            },
+            {
+              "id": "0b06aa1b-da4a-4c01-9a95-0064f23c318c",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "A status value with which to filter your results.",
+                      "key": "status",
+                      "value": "InProgress"
+                    },
+                    {
+                      "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                      "key": "platformId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IAM principal that requested the signing job.",
+                      "key": "requestedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with revoked signatures.",
+                      "key": "isRevoked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                      "key": "signatureExpiresBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                      "key": "signatureExpiresAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                      "key": "jobInvoker",
+                      "value": "615009848088"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-0b06aa1b-da4a-4c01-9a95-0064f23c318c"
+            },
+            {
+              "id": "acb415ae-0393-4f63-aaa9-29d64c5b6a77",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "A status value with which to filter your results.",
+                      "key": "status",
+                      "value": "InProgress"
+                    },
+                    {
+                      "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                      "key": "platformId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IAM principal that requested the signing job.",
+                      "key": "requestedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with revoked signatures.",
+                      "key": "isRevoked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                      "key": "signatureExpiresBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                      "key": "signatureExpiresAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                      "key": "jobInvoker",
+                      "value": "615009848088"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-acb415ae-0393-4f63-aaa9-29d64c5b6a77"
+            },
+            {
+              "id": "dbad49f2-67a0-4185-bfd2-3713b3003d28",
+              "name": "TooManyRequestsException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "A status value with which to filter your results.",
+                      "key": "status",
+                      "value": "InProgress"
+                    },
+                    {
+                      "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                      "key": "platformId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IAM principal that requested the signing job.",
+                      "key": "requestedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with revoked signatures.",
+                      "key": "isRevoked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                      "key": "signatureExpiresBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                      "key": "signatureExpiresAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                      "key": "jobInvoker",
+                      "value": "615009848088"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-dbad49f2-67a0-4185-bfd2-3713b3003d28"
+            },
+            {
+              "id": "248d810b-eade-448b-8371-054f0066e392",
+              "name": "InternalServiceErrorException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs?status=InProgress&platformId=<string>&requestedBy=<string>&maxResults=<integer>&nextToken=<string>&isRevoked=<boolean>&signatureExpiresBefore=<dateTime>&signatureExpiresAfter=<dateTime>&jobInvoker=615009848088",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "A status value with which to filter your results.",
+                      "key": "status",
+                      "value": "InProgress"
+                    },
+                    {
+                      "description": "The ID of microcontroller platform that you specified for the distribution of your code image.",
+                      "key": "platformId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IAM principal that requested the signing job.",
+                      "key": "requestedBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. ",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received.",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with revoked signatures.",
+                      "key": "isRevoked",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp.",
+                      "key": "signatureExpiresBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp.",
+                      "key": "signatureExpiresAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filters results to return only signing jobs initiated by a specified IAM entity.",
+                      "key": "jobInvoker",
+                      "value": "615009848088"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-248d810b-eade-448b-8371-054f0066e392"
+            }
+          ],
+          "createdAt": "2026-07-28T10:43:56.000Z",
+          "updatedAt": "2026-07-28T10:43:56.000Z",
+          "uid": "35240-639bf7bb-aa27-403d-8784-9094c5798516"
+        },
+        {
+          "name": "Amazon Start Signing Job",
+          "id": "15d584dc-020e-49bd-ae51-a1e2fbd151dd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/signing-jobs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signing-jobs"
+              ]
+            },
+            "description": "<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation for two years after they are performed. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Creating a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be version enabled.</p> </li> <li> <p>You must create an S3 destination bucket. Code signing uses your S3 destination bucket to write your signed code.</p> </li> <li> <p>You specify the name of the source and destination buckets when calling the <code>StartSigningJob</code> operation.</p> </li> <li> <p>You must also specify a request token that identifies your request to code signing.</p> </li> </ul> <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call <code>StartSigningJob</code>.</p> <p>For a Java example that shows how to use this action, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/api-startsigningjob.html\">StartSigningJob</a>.</p>"
+          },
+          "response": [
+            {
+              "id": "c114747e-3d2d-4e27-99be-114f305e68d0",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"jobId\": \"<string>\",\n  \"jobOwner\": \"293335223859\"\n}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-c114747e-3d2d-4e27-99be-114f305e68d0"
+            },
+            {
+              "id": "1240edaf-de49-459b-8f57-4466ff8a3143",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-1240edaf-de49-459b-8f57-4466ff8a3143"
+            },
+            {
+              "id": "10006371-d621-461d-b16b-50ecc193ad3c",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-10006371-d621-461d-b16b-50ecc193ad3c"
+            },
+            {
+              "id": "0fc2ca5c-c2a9-4d2a-bd49-513250ed19f4",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-0fc2ca5c-c2a9-4d2a-bd49-513250ed19f4"
+            },
+            {
+              "id": "622b8513-fcb1-4c80-a70f-2e6dc612cd7f",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-622b8513-fcb1-4c80-a70f-2e6dc612cd7f"
+            },
+            {
+              "id": "d9fb246a-44a3-495a-bdd8-6f2258a0aee9",
+              "name": "TooManyRequestsException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-d9fb246a-44a3-495a-bdd8-6f2258a0aee9"
+            },
+            {
+              "id": "b588caac-41b6-458e-94fb-0d7868dfa461",
+              "name": "InternalServiceErrorException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"key\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  },\n  \"destination\": {\n    \"s3\": {\n      \"bucketName\": \"<string>\",\n      \"prefix\": \"<string>\"\n    }\n  },\n  \"profileName\": \"V4\",\n  \"clientRequestToken\": \"<string>\",\n  \"profileOwner\": \"621125014402\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signing-jobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signing-jobs"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:43:56.000Z",
+              "updatedAt": "2026-07-28T10:43:56.000Z",
+              "uid": "35240-b588caac-41b6-458e-94fb-0d7868dfa461"
+            }
+          ],
+          "createdAt": "2026-07-28T10:43:56.000Z",
+          "updatedAt": "2026-07-28T10:43:56.000Z",
+          "uid": "35240-15d584dc-020e-49bd-ae51-a1e2fbd151dd"
+        }
+      ],
+      "id": "123d5767-1f7e-4376-9ec8-d530a2de1806",
+      "createdAt": "2026-07-28T10:43:56.000Z",
+      "updatedAt": "2026-07-28T10:43:56.000Z",
+      "uid": "35240-123d5767-1f7e-4376-9ec8-d530a2de1806"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://signer.{{region}}.amazonaws.com"
+    }
+  ]
+}

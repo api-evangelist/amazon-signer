@@ -1,0 +1,22 @@
+{
+  "provider": "amazon-signer",
+  "sources": [
+    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
+    "amazon-signer-signing-jobs-api-openapi.yml",
+    "amazon-signer-signing-platforms-api-openapi.yml",
+    "amazon-signer-signing-profiles-api-openapi.yml",
+    "amazon-signer-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
+    "amazon-signer-signing-jobs-api-openapi.yml",
+    "amazon-signer-signing-platforms-api-openapi.yml",
+    "amazon-signer-signing-profiles-api-openapi.yml",
+    "amazon-signer-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
