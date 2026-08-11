@@ -54,7 +54,7 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
-    url: capabilities/amazon-signer.yaml
+    url: openapi/_original/amazon-signer.yaml
 - aid: amazon-signer:amazon-signer-signing-jobs-api
   name: Amazon Signer Signing Jobs API
   description: The Signing Jobs API from Amazon Signer — 4 operation(s) for signing jobs.
@@ -74,7 +74,7 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
-    url: capabilities/amazon-signer.yaml
+    url: openapi/_original/amazon-signer.yaml
 - aid: amazon-signer:amazon-signer-signing-platforms-api
   name: Amazon Signer Signing Platforms API
   description: The Signing Platforms API from Amazon Signer — 2 operation(s) for signing platforms.
@@ -94,7 +94,7 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
-    url: capabilities/amazon-signer.yaml
+    url: openapi/_original/amazon-signer.yaml
 - aid: amazon-signer:amazon-signer-signing-profiles-api
   name: Amazon Signer Signing Profiles API
   description: The Signing Profiles API from Amazon Signer — 5 operation(s) for signing profiles.
@@ -114,7 +114,7 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
-    url: capabilities/amazon-signer.yaml
+    url: openapi/_original/amazon-signer.yaml
 - aid: amazon-signer:amazon-signer-tags-api
   name: Amazon Signer Tags API
   description: The Tags API from Amazon Signer — 2 operation(s) for tags.
@@ -134,7 +134,7 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
-    url: capabilities/amazon-signer.yaml
+    url: openapi/_original/amazon-signer.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-signer/overview
