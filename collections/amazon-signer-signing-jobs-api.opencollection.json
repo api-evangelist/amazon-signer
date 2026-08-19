@@ -1,0 +1,315 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Jobs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signing Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Describe Signing Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-jobs/:jobId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the signing job on input."
+              }
+            ]
+          },
+          "docs": "Returns information about a specific code signing job. You specify the job by using the <code>jobId</code> value that is returned by the <a>StartSigningJob</a> operation. "
+        },
+        {
+          "info": {
+            "name": "Amazon List Signing Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-jobs",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "A status value with which to filter your results."
+              },
+              {
+                "name": "platformId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of microcontroller platform that you specified for the distribution of your code image."
+              },
+              {
+                "name": "requestedBy",
+                "value": "",
+                "type": "query",
+                "description": "The IAM principal that requested the signing job."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of items to return in the response. Use this parameter when paginating results. If additional items exist beyond the number you specify, the <code>nextToken</code> element is set in the response. Use the <code>nextToken</code> value in a subsequent request to retrieve additional items. "
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "String for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received."
+              },
+              {
+                "name": "isRevoked",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs with revoked signatures."
+              },
+              {
+                "name": "signatureExpiresBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs with signatures expiring before a specified timestamp."
+              },
+              {
+                "name": "signatureExpiresAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs with signatures expiring after a specified timestamp."
+              },
+              {
+                "name": "jobInvoker",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs initiated by a specified IAM entity."
+              }
+            ]
+          },
+          "docs": "Lists all your signing jobs. You can use the <code>maxResults</code> parameter to limit the number of signing jobs that are returned in the response. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that code signing returns in the <code>ne"
+        },
+        {
+          "info": {
+            "name": "Amazon Start Signing Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://signer.{region}.amazonaws.com/signing-jobs",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<p>Initiates a signing job to be performed on the code provided. Signing jobs are viewable by the <code>ListSigningJobs</code> operation for two years after they are performed. Note the following requirements: </p> <ul> <li> <p> You must create an Amazon S3 source bucket. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html\">Creating a Bucket</a> in the <i>Amazon S3 Getting Started Guide</i>. </p> </li> <li> <p>Your S3 source bucket must be versi"
+        },
+        {
+          "info": {
+            "name": "Amazon Revoke Signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://signer.{region}.amazonaws.com/signing-jobs/:jobId/revoke",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "ID of the signing job to be revoked."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Changes the state of a signing job to REVOKED. This indicates that the signature is no longer valid."
+        },
+        {
+          "info": {
+            "name": "Amazon Sign Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://signer.{region}.amazonaws.com/signing-jobs/with-payload",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Signs a binary payload and returns a signature envelope."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

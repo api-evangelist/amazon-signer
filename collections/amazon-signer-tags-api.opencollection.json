@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Tags API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Tags For Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/tags/:resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) for the signing profile."
+              }
+            ]
+          },
+          "docs": "Returns a list of the tags associated with a signing profile resource."
+        },
+        {
+          "info": {
+            "name": "Amazon Tag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://signer.{region}.amazonaws.com/tags/:resourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) for the signing profile."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more tags to a signing profile. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value pair."
+        },
+        {
+          "info": {
+            "name": "Amazon Untag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://signer.{region}.amazonaws.com/tags/:resourceArn#tagKeys",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "resourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) for the signing profile."
+              },
+              {
+                "name": "tagKeys",
+                "value": "",
+                "type": "query",
+                "description": "A list of tag keys to be removed from the signing profile."
+              }
+            ]
+          },
+          "docs": "Removes one or more tags from a signing profile. To remove the tags, specify a list of tag keys."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

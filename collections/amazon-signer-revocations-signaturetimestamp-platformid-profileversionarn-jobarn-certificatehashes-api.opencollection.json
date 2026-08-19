@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Revocation Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "signatureTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "The timestamp of the signature that validates the profile or job."
+              },
+              {
+                "name": "platformId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of a signing platform. "
+              },
+              {
+                "name": "profileVersionArn",
+                "value": "",
+                "type": "query",
+                "description": "The version of a signing profile."
+              },
+              {
+                "name": "jobArn",
+                "value": "",
+                "type": "query",
+                "description": "The ARN of a signing job."
+              },
+              {
+                "name": "certificateHashes",
+                "value": "",
+                "type": "query",
+                "description": "<p>A list of composite signed hashes that identify certificates.</p> <p>A certificate identifier consists of a subject certificate TBS hash (signed by the parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root certificates are defined as their own CA.</p>"
+              }
+            ]
+          },
+          "docs": "Retrieves the revocation status of one or more of the signing profile, signing job, and signing certificate."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

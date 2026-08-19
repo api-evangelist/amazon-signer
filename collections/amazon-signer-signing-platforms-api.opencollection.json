@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Platforms API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signing Platforms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Get Signing Platform",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-platforms/:platformId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "platformId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the target signing platform."
+              }
+            ]
+          },
+          "docs": "Returns information on a specific signing platform."
+        },
+        {
+          "info": {
+            "name": "Amazon List Signing Platforms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-platforms",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "The category type of a signing platform."
+              },
+              {
+                "name": "partner",
+                "value": "",
+                "type": "query",
+                "description": "Any partner entities connected to a signing platform."
+              },
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "The validation template that is used by the target signing platform."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results to be returned by this operation."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received."
+              }
+            ]
+          },
+          "docs": "Lists all signing platforms available in code signing that match the request parameters. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that code signing returns in the <code>nextToken</code> parameter until all of your signing jobs have "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,478 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Profiles API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signing Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Profile Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName/permissions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "Name of the signing profile containing the cross-account permissions."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "String for specifying the next set of paginated results."
+              }
+            ]
+          },
+          "docs": "Lists the cross-account permissions associated with a signing profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Add Profile Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName/permissions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "The human-readable name of the signing profile."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds cross-account permissions to a signing profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Get Signing Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the target signing profile."
+              },
+              {
+                "name": "profileOwner",
+                "value": "",
+                "type": "query",
+                "description": "The AWS account ID of the profile owner."
+              }
+            ]
+          },
+          "docs": "Returns information on a specific signing profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Put Signing Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the signing profile to be created."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a signing profile. A signing profile is a code signing template that can be used to carry out a pre-defined signing job. "
+        },
+        {
+          "info": {
+            "name": "Amazon Cancel Signing Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the signing profile to be canceled."
+              }
+            ]
+          },
+          "docs": "Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>. A canceled profile is still viewable with the <code>ListSigningProfiles</code> operation, but it cannot perform new signing jobs, and is deleted two years after cancelation."
+        },
+        {
+          "info": {
+            "name": "Amazon List Signing Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "includeCanceled",
+                "value": "",
+                "type": "query",
+                "description": "Designates whether to include profiles with the status of <code>CANCELED</code>."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of profiles to be returned."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Value for specifying the next set of paginated results to return. After you receive a response with truncated results, use this parameter in a subsequent request. Set it to the value of <code>nextToken</code> from the response that you just received."
+              },
+              {
+                "name": "platformId",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs initiated for a specified signing platform."
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "Filters results to return only signing jobs with statuses in the specified list."
+              }
+            ]
+          },
+          "docs": "Lists all available signing profiles in your AWS account. Returns only profiles with an <code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is set to <code>true</code>. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new "
+        },
+        {
+          "info": {
+            "name": "Amazon Remove Profile Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName/permissions/:statementId#revisionId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "A human-readable name for the signing profile with permissions to be removed."
+              },
+              {
+                "name": "revisionId",
+                "value": "",
+                "type": "query",
+                "description": "An identifier for the current revision of the signing profile permissions."
+              },
+              {
+                "name": "statementId",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier for the cross-account permissions statement."
+              }
+            ]
+          },
+          "docs": "Removes cross-account permissions from a signing profile."
+        },
+        {
+          "info": {
+            "name": "Amazon Revoke Signing Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://signer.{region}.amazonaws.com/signing-profiles/:profileName/revoke",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "profileName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the signing profile to be revoked."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Changes the state of a signing profile to REVOKED. This indicates that signatures generated using the signing profile after an effective start date are no longer valid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
