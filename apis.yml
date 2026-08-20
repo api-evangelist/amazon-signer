@@ -39,7 +39,8 @@ apis:
     Amazon Signer — 1 operation(s) for revocations#signaturetimestamp&platformid&profileversionarn&jobarn&certificatehashes.
   humanURL: https://aws.amazon.com/signer/
   baseURL: https://signer.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
   properties:
   - type: OpenAPI
