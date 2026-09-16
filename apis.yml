@@ -1,8 +1,8 @@
 aid: amazon-signer
 name: Amazon Signer
-description: AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your code. It manages
-  the code-signing certificate public and private keys and enables central management and deployment of code signing certificates
-  for Lambda functions and IoT devices.
+description: AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your
+  code. It manages the code-signing certificate public and private keys and enables central management
+  and deployment of code signing certificates for Lambda functions and IoT devices.
 type: Index
 deliveryModel:
   model: saas
@@ -39,17 +39,14 @@ tags:
 - Security
 url: https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: >-
-    amazon-signer:amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api
-  name: >-
-    Amazon Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+- aid: amazon-signer:amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api
+  name: Amazon Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
     API
-  description: >-
-    The Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes API from
-    Amazon Signer — 1 operation(s) for revocations#signaturetimestamp&platformid&profileversionarn&jobarn&certificatehashes.
+  description: The Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+    API from Amazon Signer — 1 operation(s) for revocations#signaturetimestamp&platformid&profileversionarn&jobarn&certificatehashes.
   humanURL: https://aws.amazon.com/signer/
   baseURL: https://signer.amazonaws.com
   tags: []
@@ -57,8 +54,7 @@ apis:
   - Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml
+    url: openapi/amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
   - type: GettingStarted
@@ -150,6 +146,8 @@ apis:
   - type: X-NaftikoCapability
     url: openapi/_original/amazon-signer.yaml
 common:
+- type: Website
+  url: https://amazon.com
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-signer/overview
 - type: AgenticAccess
