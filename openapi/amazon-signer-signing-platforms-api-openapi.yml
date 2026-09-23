@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2017-08-25'
   x-release: v4
-  title: AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Platforms API
-  description: <p>AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code. </p> <p>AWS Signer supports the following applications:</p> <p>With code signing for AWS Lambda, you can sign <a href="http://docs.aws.amazon.com/lambda/latest/dg/">AWS Lambda</a> deployment packages. Integrated support is provided for <a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/">Amazon S3</a>, <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/">Amazon CloudWatch</a>, and <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/">AWS CloudTrail</a>. In order to sign code, you create a signing profile and then use Signer to sign Lambda zip files in S3. </p> <p>With code signing for IoT, you can sign code for any IoT device that is supported by AWS. IoT code signing is available for <a href="http://docs.aws.amazon.com/freertos/latest/userguide/">Amazon FreeRTOS</a> and <a href="http://docs.aws.amazon.com/iot/latest/developerguide/">AWS IoT Device Management</a>, and is integrated with <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager (ACM)</a>. In order to sign code, you import a third-party code signing certificate using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p> <p>With code signing for containers …(TBD)</p> <p>For more information about AWS Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer Guide</a>.</p>
+  title: AWS Signer Signing Platforms API
+  description: AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/signer-2017-08-25.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -215,7 +216,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListSigningPlatforms
-      description: Lists all signing platforms available in code signing that match the request parameters. If additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can continue calling <code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with new values that code signing returns in the <code>nextToken</code> parameter until all of your signing jobs have been returned.
+      description: Lists all signing platforms available in code signing that match the request parameters. If additional jobs remain to be listed, code signing returns a nextToken value. Use this value in subsequent calls to ListSigningJobs to fetch the remaining values. You can continue calling ListSigningJobs with your maxResults parameter and with new values that code signing returns in the nextToken parameter until all of your signing jobs have been returned.
       responses:
         '200':
           description: Success
@@ -314,17 +315,97 @@ paths:
       tags:
       - Signing Platforms
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    MaxSizeInMB:
+      type: integer
+    SigningImageFormat:
+      type: object
+      required:
+      - supportedFormats
+      - defaultFormat
+      properties:
+        supportedFormats:
+          allOf:
+          - $ref: '#/components/schemas/ImageFormats'
+          - description: The supported formats of a code signing image.
+        defaultFormat:
+          allOf:
+          - $ref: '#/components/schemas/ImageFormat'
+          - description: The default format of a code signing image.
+      description: The image format of a code signing platform or profile.
     ImageFormats:
       type: array
       items:
         $ref: '#/components/schemas/ImageFormat'
+    EncryptionAlgorithmOptions:
+      type: object
+      required:
+      - allowedValues
+      - defaultValue
+      properties:
+        allowedValues:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithms'
+          - description: The set of accepted encryption algorithms that are allowed in a code signing job.
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithm'
+          - description: The default encryption algorithm that is used by a code signing job.
+      description: The encryption algorithm options that are available to a code signing job.
     ImageFormat:
       type: string
       enum:
       - JSON
       - JSONEmbedded
       - JSONDetached
+    ValidationException: {}
+    EncryptionAlgorithms:
+      type: array
+      items:
+        $ref: '#/components/schemas/EncryptionAlgorithm'
     GetSigningPlatformResponse:
       type: object
       properties:
@@ -364,12 +445,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/bool'
           - description: A flag indicating whether signatures generated for the signing platform can be revoked.
-    HashAlgorithms:
+    String:
+      type: string
+    ResourceNotFoundException: {}
+    SigningPlatforms:
       type: array
       items:
-        $ref: '#/components/schemas/HashAlgorithm'
-    DisplayName:
-      type: string
+        $ref: '#/components/schemas/SigningPlatform'
+    InternalServiceErrorException: {}
+    bool:
+      type: boolean
     HashAlgorithmOptions:
       type: object
       required:
@@ -385,6 +470,11 @@ components:
           - $ref: '#/components/schemas/HashAlgorithm'
           - description: The default hash algorithm that is used in a code signing job.
       description: The hash algorithms that are available to a code signing job.
+    HashAlgorithm:
+      type: string
+      enum:
+      - SHA1
+      - SHA256
     SigningPlatform:
       type: object
       properties:
@@ -423,6 +513,10 @@ components:
           - $ref: '#/components/schemas/bool'
           - description: Indicates whether revocation is supported for the platform.
       description: Contains information about the signing configurations and parameters that are used to perform a code signing job.
+    Category:
+      type: string
+      enum:
+      - AWSIoT
     ListSigningPlatformsResponse:
       type: object
       properties:
@@ -434,48 +528,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: Value for specifying the next set of paginated results to return.
-    EncryptionAlgorithmOptions:
-      type: object
-      required:
-      - allowedValues
-      - defaultValue
-      properties:
-        allowedValues:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithms'
-          - description: The set of accepted encryption algorithms that are allowed in a code signing job.
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithm'
-          - description: The default encryption algorithm that is used by a code signing job.
-      description: The encryption algorithm options that are available to a code signing job.
-    MaxSizeInMB:
-      type: integer
-    EncryptionAlgorithms:
-      type: array
-      items:
-        $ref: '#/components/schemas/EncryptionAlgorithm'
-    ResourceNotFoundException: {}
-    HashAlgorithm:
-      type: string
-      enum:
-      - SHA1
-      - SHA256
     AccessDeniedException: {}
-    SigningPlatforms:
+    HashAlgorithms:
       type: array
       items:
-        $ref: '#/components/schemas/SigningPlatform'
-    ValidationException: {}
-    PlatformId:
-      type: string
-    TooManyRequestsException: {}
-    Category:
-      type: string
-      enum:
-      - AWSIoT
-    String:
-      type: string
+        $ref: '#/components/schemas/HashAlgorithm'
     SigningConfiguration:
       type: object
       required:
@@ -491,72 +548,16 @@ components:
           - $ref: '#/components/schemas/HashAlgorithmOptions'
           - description: The hash algorithm options that are available for a code signing job.
       description: The configuration of a code signing operation.
-    InternalServiceErrorException: {}
-    SigningImageFormat:
-      type: object
-      required:
-      - supportedFormats
-      - defaultFormat
-      properties:
-        supportedFormats:
-          allOf:
-          - $ref: '#/components/schemas/ImageFormats'
-          - description: The supported formats of a code signing image.
-        defaultFormat:
-          allOf:
-          - $ref: '#/components/schemas/ImageFormat'
-          - description: The default format of a code signing image.
-      description: The image format of a code signing platform or profile.
     EncryptionAlgorithm:
       type: string
       enum:
       - RSA
       - ECDSA
-    bool:
-      type: boolean
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+    TooManyRequestsException: {}
+    DisplayName:
+      type: string
+    PlatformId:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey

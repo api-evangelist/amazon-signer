@@ -1,11 +1,7 @@
 {
   "provider": "amazon-signer",
   "sources": [
-    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
-    "amazon-signer-signing-jobs-api-openapi.yml",
-    "amazon-signer-signing-platforms-api-openapi.yml",
-    "amazon-signer-signing-profiles-api-openapi.yml",
-    "amazon-signer-tags-api-openapi.yml"
+    "_original/amazon-signer.yaml"
   ],
   "outputs": [
     "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
@@ -18,7 +14,39 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-signer.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-signer.yaml: tagged paths POST /signing-profiles/{profileName}/permissions -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths GET /signing-profiles/{profileName}/permissions -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths DELETE /signing-profiles/{profileName} -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths GET /signing-profiles/{profileName} -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths PUT /signing-profiles/{profileName} -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths GET /signing-jobs/{jobId} -> Signing Jobs",
+    "amazon-signer.yaml: tagged paths GET /revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes -> Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+    "amazon-signer.yaml: tagged paths GET /signing-platforms/{platformId} -> Signing Platforms",
+    "amazon-signer.yaml: tagged paths GET /signing-jobs -> Signing Jobs",
+    "amazon-signer.yaml: tagged paths POST /signing-jobs -> Signing Jobs",
+    "amazon-signer.yaml: tagged paths GET /signing-platforms -> Signing Platforms",
+    "amazon-signer.yaml: tagged paths GET /signing-profiles -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths GET /tags/{resourceArn} -> Tags",
+    "amazon-signer.yaml: tagged paths POST /tags/{resourceArn} -> Tags",
+    "amazon-signer.yaml: tagged paths DELETE /signing-profiles/{profileName}/permissions/{statementId}#revisionId -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths PUT /signing-jobs/{jobId}/revoke -> Signing Jobs",
+    "amazon-signer.yaml: tagged paths PUT /signing-profiles/{profileName}/revoke -> Signing Profiles",
+    "amazon-signer.yaml: tagged paths POST /signing-jobs/with-payload -> Signing Jobs",
+    "amazon-signer.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
+    "amazon-signer.yaml: declared missing tag: Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+    "amazon-signer.yaml: declared missing tag: Signing Jobs",
+    "amazon-signer.yaml: declared missing tag: Signing Platforms",
+    "amazon-signer.yaml: declared missing tag: Signing Profiles",
+    "amazon-signer.yaml: declared missing tag: Tags",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-signer-signing-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-signer-signing-platforms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-signer-signing-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-signer-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
