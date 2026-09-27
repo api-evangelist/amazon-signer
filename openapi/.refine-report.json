@@ -4,13 +4,15 @@
     "_original/amazon-signer.yaml"
   ],
   "outputs": [
-    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
+    "amazon-signer-revocations-api-openapi.yml",
     "amazon-signer-signing-jobs-api-openapi.yml",
     "amazon-signer-signing-platforms-api-openapi.yml",
     "amazon-signer-signing-profiles-api-openapi.yml",
     "amazon-signer-tags-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -22,7 +24,7 @@
     "amazon-signer.yaml: tagged paths GET /signing-profiles/{profileName} -> Signing Profiles",
     "amazon-signer.yaml: tagged paths PUT /signing-profiles/{profileName} -> Signing Profiles",
     "amazon-signer.yaml: tagged paths GET /signing-jobs/{jobId} -> Signing Jobs",
-    "amazon-signer.yaml: tagged paths GET /revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes -> Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+    "amazon-signer.yaml: tagged paths GET /revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes -> Revocations",
     "amazon-signer.yaml: tagged paths GET /signing-platforms/{platformId} -> Signing Platforms",
     "amazon-signer.yaml: tagged paths GET /signing-jobs -> Signing Jobs",
     "amazon-signer.yaml: tagged paths POST /signing-jobs -> Signing Jobs",
@@ -35,12 +37,13 @@
     "amazon-signer.yaml: tagged paths PUT /signing-profiles/{profileName}/revoke -> Signing Profiles",
     "amazon-signer.yaml: tagged paths POST /signing-jobs/with-payload -> Signing Jobs",
     "amazon-signer.yaml: tagged paths DELETE /tags/{resourceArn}#tagKeys -> Tags",
-    "amazon-signer.yaml: declared missing tag: Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes",
+    "amazon-signer.yaml: declared missing tag: Revocations",
     "amazon-signer.yaml: declared missing tag: Signing Jobs",
     "amazon-signer.yaml: declared missing tag: Signing Platforms",
     "amazon-signer.yaml: declared missing tag: Signing Profiles",
     "amazon-signer.yaml: declared missing tag: Tags",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 5 total)"
   ],
   "skipped": [
     "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml: previously refined output, superseded by openapi/_original/",

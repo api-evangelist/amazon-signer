@@ -42,29 +42,6 @@ created: '2026-03-16'
 modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
-- aid: amazon-signer:amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api
-  name: Amazon Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
-    API
-  description: The Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
-    API from Amazon Signer — 1 operation(s) for revocations#signaturetimestamp&platformid&profileversionarn&jobarn&certificatehashes.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags: []
-  tags_raw:
-  - Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
 - aid: amazon-signer:amazon-signer-signing-jobs-api
   name: Amazon Signer Signing Jobs API
   description: The Signing Jobs API from Amazon Signer — 4 operation(s) for signing jobs.
@@ -145,9 +122,29 @@ apis:
     url: https://aws.amazon.com/signer/faqs/
   - type: X-NaftikoCapability
     url: openapi/_original/amazon-signer.yaml
+- aid: amazon-signer:amazon-signer-revocations-api
+  name: Amazon Signer Revocations API
+  description: The Revocations API from Amazon Signer — 1 operation(s) for revocations.
+  humanURL: https://aws.amazon.com/signer/
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Revocations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-revocations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/signer/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/signer/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/signer/faqs/
+  - type: X-NaftikoCapability
+    url: openapi/_original/amazon-signer.yaml
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-signer/overview
 - type: AgenticAccess
@@ -243,5 +240,5 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 kind: company
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

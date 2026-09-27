@@ -1048,109 +1048,40 @@ paths:
       - Signing Profiles
 components:
   schemas:
-    TagValue:
-      type: string
-      maxLength: 256
-    ListSigningProfilesResponse:
+    SigningMaterial:
       type: object
+      required:
+      - certificateArn
       properties:
-        profiles:
+        certificateArn:
           allOf:
-          - $ref: '#/components/schemas/SigningProfiles'
-          - description: A list of profiles that are available in the AWS account. This includes profiles with the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set to <code>true</code>.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: Value for specifying the next set of paginated results to return.
-    SigningParameterValue:
-      type: string
-    ConflictException: {}
-    AddProfilePermissionResponse:
-      type: object
-      properties:
-        revisionId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A unique identifier for the current profile revision.
-    Arn:
-      type: string
-      minLength: 20
-      maxLength: 2048
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+      description: The ACM certificate that is used to sign your code.
     SigningProfileStatus:
       type: string
       enum:
       - Active
       - Canceled
       - Revoked
-    SignatureValidityPeriod:
-      type: object
-      properties:
-        value:
-          allOf:
-          - $ref: '#/components/schemas/Integer'
-          - description: The numerical value of the time unit for signature validity.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/ValidityType'
-          - description: The time unit for signature validity.
-      description: The validity period for a signing job.
-    Integer:
-      type: integer
-    PutSigningProfileResponse:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/string'
-          - description: The Amazon Resource Name (ARN) of the signing profile created.
-        profileVersion:
-          allOf:
-          - $ref: '#/components/schemas/ProfileVersion'
-          - description: The version of the signing profile being created.
-        profileVersionArn:
-          allOf:
-          - $ref: '#/components/schemas/Arn'
-          - description: The signing profile ARN, including the profile version.
-    ProfileVersion:
-      type: string
-      pattern: ^[a-zA-Z0-9]{10}$
-      minLength: 10
-      maxLength: 10
-    Permission:
-      type: object
-      properties:
-        action:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: An AWS Signer action permitted as part of cross-account permissions.
-        principal:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The AWS principal that has been granted a cross-account permission.
-        statementId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: A unique identifier for a cross-account permission statement.
-        profileVersion:
-          allOf:
-          - $ref: '#/components/schemas/ProfileVersion'
-          - description: The signing profile version that a permission applies to.
-      description: A cross-account permission for a signing profile.
-    ImageFormat:
+    ValidityType:
       type: string
       enum:
-      - JSON
-      - JSONEmbedded
-      - JSONDetached
-    TagMap:
-      type: object
-      minProperties: 1
-      maxProperties: 200
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    string:
+      - DAYS
+      - MONTHS
+      - YEARS
+    DisplayName:
       type: string
-    ValidationException: {}
+    EncryptionAlgorithm:
+      type: string
+      enum:
+      - RSA
+      - ECDSA
+    TagValue:
+      type: string
+      maxLength: 256
+    PolicySizeBytes:
+      type: integer
     SigningPlatformOverrides:
       type: object
       properties:
@@ -1163,6 +1094,25 @@ components:
           - $ref: '#/components/schemas/ImageFormat'
           - description: A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image.
       description: Any overrides that are applied to the signing configuration of a code signing platform.
+    ProfileName:
+      type: string
+      pattern: ^[a-zA-Z0-9_]{2,}
+      minLength: 2
+      maxLength: 64
+    AccessDeniedException: {}
+    String:
+      type: string
+    InternalServiceErrorException: {}
+    Integer:
+      type: integer
+    Timestamp:
+      type: string
+      format: date-time
+    HashAlgorithm:
+      type: string
+      enum:
+      - SHA1
+      - SHA256
     ListProfilePermissionsResponse:
       type: object
       properties:
@@ -1182,6 +1132,28 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: String for specifying the next set of paginated results.
+    SigningParameterValue:
+      type: string
+    ImageFormat:
+      type: string
+      enum:
+      - JSON
+      - JSONEmbedded
+      - JSONDetached
+    CertificateArn:
+      type: string
+    ConflictException: {}
+    ListSigningProfilesResponse:
+      type: object
+      properties:
+        profiles:
+          allOf:
+          - $ref: '#/components/schemas/SigningProfiles'
+          - description: A list of profiles that are available in the AWS account. This includes profiles with the status of <code>CANCELED</code> if the <code>includeCanceled</code> parameter is set to <code>true</code>.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Value for specifying the next set of paginated results to return.
     RemoveProfilePermissionResponse:
       type: object
       properties:
@@ -1189,45 +1161,34 @@ components:
           allOf:
           - $ref: '#/components/schemas/String'
           - description: An identifier for the current revision of the profile permissions.
-    String:
+    Permissions:
+      type: array
+      items:
+        $ref: '#/components/schemas/Permission'
+    ProfileVersion:
       type: string
-    ProfileName:
-      type: string
-      pattern: ^[a-zA-Z0-9_]{2,}
-      minLength: 2
-      maxLength: 64
-    ResourceNotFoundException: {}
-    ServiceLimitExceededException: {}
-    InternalServiceErrorException: {}
-    CertificateArn:
-      type: string
-    SigningParameters:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/SigningParameterValue'
-    SigningConfigurationOverrides:
+      pattern: ^[a-zA-Z0-9]{10}$
+      minLength: 10
+      maxLength: 10
+    PutSigningProfileResponse:
       type: object
       properties:
-        encryptionAlgorithm:
+        arn:
           allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithm'
-          - description: A specified override of the default encryption algorithm that is used in a code signing job.
-        hashAlgorithm:
+          - $ref: '#/components/schemas/string'
+          - description: The Amazon Resource Name (ARN) of the signing profile created.
+        profileVersion:
           allOf:
-          - $ref: '#/components/schemas/HashAlgorithm'
-          - description: A specified override of the default hash algorithm that is used in a code signing job.
-      description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
-    ValidityType:
-      type: string
-      enum:
-      - DAYS
-      - MONTHS
-      - YEARS
-    HashAlgorithm:
-      type: string
-      enum:
-      - SHA1
-      - SHA256
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The version of the signing profile being created.
+        profileVersionArn:
+          allOf:
+          - $ref: '#/components/schemas/Arn'
+          - description: The signing profile ARN, including the profile version.
+    SigningProfiles:
+      type: array
+      items:
+        $ref: '#/components/schemas/SigningProfile'
     SigningProfile:
       type: object
       properties:
@@ -1276,25 +1237,41 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: A list of tags associated with the signing profile.
       description: Contains information about the ACM certificates and code signing configuration parameters that can be used by a given code signing user.
-    AccessDeniedException: {}
-    Permissions:
-      type: array
-      items:
-        $ref: '#/components/schemas/Permission'
-    PolicySizeBytes:
-      type: integer
-    SigningMaterial:
-      type: object
-      required:
-      - certificateArn
-      properties:
-        certificateArn:
-          allOf:
-          - $ref: '#/components/schemas/CertificateArn'
-          - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-      description: The ACM certificate that is used to sign your code.
     NextToken:
       type: string
+    Permission:
+      type: object
+      properties:
+        action:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: An AWS Signer action permitted as part of cross-account permissions.
+        principal:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The AWS principal that has been granted a cross-account permission.
+        statementId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A unique identifier for a cross-account permission statement.
+        profileVersion:
+          allOf:
+          - $ref: '#/components/schemas/ProfileVersion'
+          - description: The signing profile version that a permission applies to.
+      description: A cross-account permission for a signing profile.
+    ResourceNotFoundException: {}
+    SignatureValidityPeriod:
+      type: object
+      properties:
+        value:
+          allOf:
+          - $ref: '#/components/schemas/Integer'
+          - description: The numerical value of the time unit for signature validity.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ValidityType'
+          - description: The time unit for signature validity.
+      description: The validity period for a signing job.
     SigningProfileRevocationRecord:
       type: object
       properties:
@@ -1311,14 +1288,25 @@ components:
           - $ref: '#/components/schemas/String'
           - description: The identity of the revoker.
       description: Revocation information for a signing profile.
-    EncryptionAlgorithm:
+    Arn:
       type: string
-      enum:
-      - RSA
-      - ECDSA
-    Timestamp:
+      minLength: 20
+      maxLength: 2048
+    AddProfilePermissionResponse:
+      type: object
+      properties:
+        revisionId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: A unique identifier for the current profile revision.
+    string:
       type: string
-      format: date-time
+    TagMap:
+      type: object
+      minProperties: 1
+      maxProperties: 200
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     GetSigningProfileResponse:
       type: object
       properties:
@@ -1374,16 +1362,46 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: A list of tags associated with the signing profile.
+    SigningConfigurationOverrides:
+      type: object
+      properties:
+        encryptionAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithm'
+          - description: A specified override of the default encryption algorithm that is used in a code signing job.
+        hashAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithm'
+          - description: A specified override of the default hash algorithm that is used in a code signing job.
+      description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
     TooManyRequestsException: {}
-    DisplayName:
-      type: string
-    SigningProfiles:
-      type: array
-      items:
-        $ref: '#/components/schemas/SigningProfile'
+    SigningParameters:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/SigningParameterValue'
+    ValidationException: {}
     PlatformId:
       type: string
+    ServiceLimitExceededException: {}
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -1402,26 +1420,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

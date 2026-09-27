@@ -765,83 +765,50 @@ paths:
       - Signing Jobs
 components:
   schemas:
-    StartSigningJobResponse:
-      type: object
-      properties:
-        jobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The ID of your signing job.
-        jobOwner:
-          allOf:
-          - $ref: '#/components/schemas/AccountId'
-          - description: The AWS account ID of the signing job owner.
-    BucketName:
-      type: string
-    DisplayName:
-      type: string
-    StatusReason:
-      type: string
-    ThrottlingException: {}
-    SigningParameterValue:
-      type: string
-    AccountId:
-      type: string
-      pattern: ^[0-9]{12}$
-      minLength: 12
-      maxLength: 12
-    RequestedBy:
-      type: string
-    SignPayloadResponse:
-      type: object
-      properties:
-        jobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: Unique identifier of the signing job.
-        jobOwner:
-          allOf:
-          - $ref: '#/components/schemas/AccountId'
-          - description: The AWS account ID of the job owner.
-        metadata:
-          allOf:
-          - $ref: '#/components/schemas/Metadata'
-          - description: Information including the signing profile ARN and the signing job ID. Clients use metadata to signature records, for example, as annotations added to the signature manifest inside an OCI registry.
-        signature:
-          allOf:
-          - $ref: '#/components/schemas/Blob'
-          - description: A cryptographic signature.
-    S3Source:
+    SigningMaterial:
       type: object
       required:
-      - bucketName
-      - key
-      - version
+      - certificateArn
       properties:
-        bucketName:
+        certificateArn:
           allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: Name of the S3 bucket.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: Key name of the bucket object that contains your unsigned code.
-        version:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: Version of your source image in your version enabled S3 bucket.
-      description: Information about the S3 bucket where you saved your unsigned code.
-    ListSigningJobsResponse:
+          - $ref: '#/components/schemas/CertificateArn'
+          - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+      description: The ACM certificate that is used to sign your code.
+    SigningStatus:
+      type: string
+      enum:
+      - InProgress
+      - Failed
+      - Succeeded
+    DisplayName:
+      type: string
+    Key:
+      type: string
+    EncryptionAlgorithm:
+      type: string
+      enum:
+      - RSA
+      - ECDSA
+    SigningPlatformOverrides:
       type: object
       properties:
-        jobs:
+        signingConfiguration:
           allOf:
-          - $ref: '#/components/schemas/SigningJobs'
-          - description: A list of your signing jobs.
-        nextToken:
+          - $ref: '#/components/schemas/SigningConfigurationOverrides'
+          - description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
+        signingImageFormat:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: String for specifying the next set of paginated results.
+          - $ref: '#/components/schemas/ImageFormat'
+          - description: A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image.
+      description: Any overrides that are applied to the signing configuration of a code signing platform.
+    ProfileName:
+      type: string
+      pattern: ^[a-zA-Z0-9_]{2,}
+      minLength: 2
+      maxLength: 64
+    bool:
+      type: boolean
     SigningJob:
       type: object
       properties:
@@ -902,96 +869,32 @@ components:
           - $ref: '#/components/schemas/AccountId'
           - description: The AWS account ID of the job invoker.
       description: Contains information about a signing job.
-    Metadata:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    ImageFormat:
+    AccessDeniedException: {}
+    String:
       type: string
-      enum:
-      - JSON
-      - JSONEmbedded
-      - JSONDetached
-    Source:
-      type: object
-      properties:
-        s3:
-          allOf:
-          - $ref: '#/components/schemas/S3Source'
-          - description: The <code>S3Source</code> object.
-      description: An <code>S3Source</code> object that contains information about the S3 bucket where you saved your unsigned code.
-    ValidationException: {}
-    Key:
-      type: string
-    SignedObject:
-      type: object
-      properties:
-        s3:
-          allOf:
-          - $ref: '#/components/schemas/S3SignedObject'
-          - description: The <code>S3SignedObject</code>.
-      description: Points to an <code>S3SignedObject</code> object that contains information about your signed code image.
-    SigningPlatformOverrides:
-      type: object
-      properties:
-        signingConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/SigningConfigurationOverrides'
-          - description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
-        signingImageFormat:
-          allOf:
-          - $ref: '#/components/schemas/ImageFormat'
-          - description: A signed image is a JSON object. When overriding the default signing platform configuration, a customer can select either of two signing formats, <code>JSONEmbedded</code> or <code>JSONDetached</code>. (A third format value, <code>JSON</code>, is reserved for future use.) With <code>JSONEmbedded</code>, the signing image has the payload embedded in it. With <code>JSONDetached</code>, the payload is not be embedded in the signing image.
-      description: Any overrides that are applied to the signing configuration of a code signing platform.
-    S3Destination:
-      type: object
-      properties:
-        bucketName:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: Name of the S3 bucket.
-        prefix:
-          allOf:
-          - $ref: '#/components/schemas/Prefix'
-          - description: An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix.
-      description: The name and prefix of the S3 bucket where code signing saves your signed objects.
+    InternalServiceErrorException: {}
     SigningJobs:
       type: array
       items:
         $ref: '#/components/schemas/SigningJob'
-    Blob:
+    BucketName:
       type: string
-    String:
+    Version:
       type: string
-    JobId:
+    Timestamp:
       type: string
-    ProfileName:
+      format: date-time
+    HashAlgorithm:
       type: string
-      pattern: ^[a-zA-Z0-9_]{2,}
-      minLength: 2
-      maxLength: 64
-    ResourceNotFoundException: {}
-    InternalServiceErrorException: {}
-    CertificateArn:
-      type: string
-    SigningParameters:
+      enum:
+      - SHA1
+      - SHA256
+    Metadata:
       type: object
       additionalProperties:
-        $ref: '#/components/schemas/SigningParameterValue'
-    SigningConfigurationOverrides:
-      type: object
-      properties:
-        encryptionAlgorithm:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithm'
-          - description: A specified override of the default encryption algorithm that is used in a code signing job.
-        hashAlgorithm:
-          allOf:
-          - $ref: '#/components/schemas/HashAlgorithm'
-          - description: A specified override of the default hash algorithm that is used in a code signing job.
-      description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
-    bool:
-      type: boolean
+        $ref: '#/components/schemas/String'
+    JobId:
+      type: string
     DescribeSigningJobResponse:
       type: object
       properties:
@@ -1071,60 +974,48 @@ components:
           allOf:
           - $ref: '#/components/schemas/AccountId'
           - description: The IAM entity that initiated the signing job.
-    HashAlgorithm:
+    SigningParameterValue:
+      type: string
+    CertificateArn:
+      type: string
+    ImageFormat:
       type: string
       enum:
-      - SHA1
-      - SHA256
-    Prefix:
+      - JSON
+      - JSONEmbedded
+      - JSONDetached
+    Blob:
       type: string
-    SigningStatus:
+    RequestedBy:
       type: string
-      enum:
-      - InProgress
-      - Failed
-      - Succeeded
-    AccessDeniedException: {}
-    S3SignedObject:
+    Source:
       type: object
       properties:
-        bucketName:
+        s3:
           allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: Name of the S3 bucket.
-        key:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: Key name that uniquely identifies a signed code image in your bucket.
-      description: The S3 bucket name and key where code signing saved your signed code image.
-    SigningMaterial:
-      type: object
-      required:
-      - certificateArn
-      properties:
-        certificateArn:
-          allOf:
-          - $ref: '#/components/schemas/CertificateArn'
-          - description: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-      description: The ACM certificate that is used to sign your code.
-    NextToken:
-      type: string
-    EncryptionAlgorithm:
-      type: string
-      enum:
-      - RSA
-      - ECDSA
-    TooManyRequestsException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    Version:
-      type: string
+          - $ref: '#/components/schemas/S3Source'
+          - description: The <code>S3Source</code> object.
+      description: An <code>S3Source</code> object that contains information about the S3 bucket where you saved your unsigned code.
     ProfileVersion:
       type: string
       pattern: ^[a-zA-Z0-9]{10}$
       minLength: 10
       maxLength: 10
+    Prefix:
+      type: string
+    StartSigningJobResponse:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The ID of your signing job.
+        jobOwner:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The AWS account ID of the signing job owner.
+    NextToken:
+      type: string
     SigningJobRevocationRecord:
       type: object
       properties:
@@ -1141,9 +1032,136 @@ components:
           - $ref: '#/components/schemas/String'
           - description: The identity of the revoker.
       description: Revocation information for a signing job.
+    SignedObject:
+      type: object
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3SignedObject'
+          - description: The <code>S3SignedObject</code>.
+      description: Points to an <code>S3SignedObject</code> object that contains information about your signed code image.
+    ResourceNotFoundException: {}
+    StatusReason:
+      type: string
+    ListSigningJobsResponse:
+      type: object
+      properties:
+        jobs:
+          allOf:
+          - $ref: '#/components/schemas/SigningJobs'
+          - description: A list of your signing jobs.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: String for specifying the next set of paginated results.
+    AccountId:
+      type: string
+      pattern: ^[0-9]{12}$
+      minLength: 12
+      maxLength: 12
+    SignPayloadResponse:
+      type: object
+      properties:
+        jobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: Unique identifier of the signing job.
+        jobOwner:
+          allOf:
+          - $ref: '#/components/schemas/AccountId'
+          - description: The AWS account ID of the job owner.
+        metadata:
+          allOf:
+          - $ref: '#/components/schemas/Metadata'
+          - description: Information including the signing profile ARN and the signing job ID. Clients use metadata to signature records, for example, as annotations added to the signature manifest inside an OCI registry.
+        signature:
+          allOf:
+          - $ref: '#/components/schemas/Blob'
+          - description: A cryptographic signature.
+    ThrottlingException: {}
+    S3SignedObject:
+      type: object
+      properties:
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: Name of the S3 bucket.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: Key name that uniquely identifies a signed code image in your bucket.
+      description: The S3 bucket name and key where code signing saved your signed code image.
+    S3Source:
+      type: object
+      required:
+      - bucketName
+      - key
+      - version
+      properties:
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: Name of the S3 bucket.
+        key:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: Key name of the bucket object that contains your unsigned code.
+        version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: Version of your source image in your version enabled S3 bucket.
+      description: Information about the S3 bucket where you saved your unsigned code.
+    TooManyRequestsException: {}
+    SigningConfigurationOverrides:
+      type: object
+      properties:
+        encryptionAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithm'
+          - description: A specified override of the default encryption algorithm that is used in a code signing job.
+        hashAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithm'
+          - description: A specified override of the default hash algorithm that is used in a code signing job.
+      description: A signing configuration that overrides the default encryption or hash algorithm of a signing job.
+    SigningParameters:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/SigningParameterValue'
+    ValidationException: {}
     PlatformId:
       type: string
+    S3Destination:
+      type: object
+      properties:
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: Name of the S3 bucket.
+        prefix:
+          allOf:
+          - $ref: '#/components/schemas/Prefix'
+          - description: An Amazon S3 prefix that you can use to limit responses to those that begin with the specified prefix.
+      description: The name and prefix of the S3 bucket where code signing saves your signed objects.
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -1162,26 +1180,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

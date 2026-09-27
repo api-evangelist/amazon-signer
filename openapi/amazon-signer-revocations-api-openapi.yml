@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: '2017-08-25'
   x-release: v4
-  title: AWS Signer Revocations#signature Timestamp&platform…
+  title: AWS Signer Revocations API
   description: AWS Signer is a fully managed code signing service to help you ensure the trust and integrity of your code.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -113,7 +113,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+- name: Revocations
 paths:
   /revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes:
     parameters:
@@ -227,9 +227,57 @@ paths:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes
+      - Revocations
 components:
+  schemas:
+    AccessDeniedException: {}
+    RevokedEntities:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    TooManyRequestsException: {}
+    ValidationException: {}
+    String:
+      type: string
+    InternalServiceErrorException: {}
+    GetRevocationStatusResponse:
+      type: object
+      properties:
+        revokedEntities:
+          allOf:
+          - $ref: '#/components/schemas/RevokedEntities'
+          - description: A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API.
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -242,54 +290,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-  schemas:
-    AccessDeniedException: {}
-    InternalServiceErrorException: {}
-    GetRevocationStatusResponse:
-      type: object
-      properties:
-        revokedEntities:
-          allOf:
-          - $ref: '#/components/schemas/RevokedEntities'
-          - description: A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API.
-    RevokedEntities:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    ValidationException: {}
-    TooManyRequestsException: {}
-    String:
-      type: string
   securitySchemes:
     hmac:
       type: apiKey
