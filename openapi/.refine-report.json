@@ -10,9 +10,7 @@
     "amazon-signer-signing-profiles-api-openapi.yml",
     "amazon-signer-tags-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -42,11 +40,10 @@
     "amazon-signer.yaml: declared missing tag: Signing Platforms",
     "amazon-signer.yaml: declared missing tag: Signing Profiles",
     "amazon-signer.yaml: declared missing tag: Tags",
-    "superseded outputs removed: amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 5 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-signer-revocations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-signer-signing-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-signer-signing-platforms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-signer-signing-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",

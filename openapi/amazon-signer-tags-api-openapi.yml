@@ -384,30 +384,25 @@ paths:
       - Tags
 components:
   schemas:
-    BadRequestException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    InternalServiceErrorException: {}
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
+      minLength: 1
+      maxLength: 128
     TagMap:
       type: object
       minProperties: 1
       maxProperties: 200
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
-    TagKey:
-      type: string
-      pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
-      minLength: 1
-      maxLength: 128
     TagValue:
       type: string
       maxLength: 256
-    TagResourceResponse:
-      type: object
-      properties: {}
     TooManyRequestsException: {}
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    NotFoundException: {}
-    InternalServiceErrorException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -415,33 +410,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: A list of tags associated with the signing profile.
+    NotFoundException: {}
+    TagResourceResponse:
+      type: object
+      properties: {}
+    BadRequestException: {}
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -454,6 +430,30 @@ components:
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
