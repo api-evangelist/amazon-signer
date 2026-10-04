@@ -315,66 +315,8 @@ paths:
       tags:
       - Signing Platforms
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
     TooManyRequestsException: {}
-    SigningImageFormat:
-      type: object
-      required:
-      - supportedFormats
-      - defaultFormat
-      properties:
-        supportedFormats:
-          allOf:
-          - $ref: '#/components/schemas/ImageFormats'
-          - description: The supported formats of a code signing image.
-        defaultFormat:
-          allOf:
-          - $ref: '#/components/schemas/ImageFormat'
-          - description: The default format of a code signing image.
-      description: The image format of a code signing platform or profile.
     GetSigningPlatformResponse:
       type: object
       properties:
@@ -414,109 +356,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/bool'
           - description: A flag indicating whether signatures generated for the signing platform can be revoked.
-    String:
-      type: string
-    ListSigningPlatformsResponse:
-      type: object
-      properties:
-        platforms:
-          allOf:
-          - $ref: '#/components/schemas/SigningPlatforms'
-          - description: A list of all platforms that match the request parameters.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: Value for specifying the next set of paginated results to return.
-    PlatformId:
-      type: string
-    ImageFormat:
-      type: string
-      enum:
-      - JSON
-      - JSONEmbedded
-      - JSONDetached
-    Category:
-      type: string
-      enum:
-      - AWSIoT
-    EncryptionAlgorithmOptions:
-      type: object
-      required:
-      - allowedValues
-      - defaultValue
-      properties:
-        allowedValues:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithms'
-          - description: The set of accepted encryption algorithms that are allowed in a code signing job.
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithm'
-          - description: The default encryption algorithm that is used by a code signing job.
-      description: The encryption algorithm options that are available to a code signing job.
-    InternalServiceErrorException: {}
-    HashAlgorithmOptions:
-      type: object
-      required:
-      - allowedValues
-      - defaultValue
-      properties:
-        allowedValues:
-          allOf:
-          - $ref: '#/components/schemas/HashAlgorithms'
-          - description: The set of accepted hash algorithms allowed in a code signing job.
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/HashAlgorithm'
-          - description: The default hash algorithm that is used in a code signing job.
-      description: The hash algorithms that are available to a code signing job.
-    EncryptionAlgorithm:
-      type: string
-      enum:
-      - RSA
-      - ECDSA
-    ImageFormats:
-      type: array
-      items:
-        $ref: '#/components/schemas/ImageFormat'
-    SigningPlatforms:
-      type: array
-      items:
-        $ref: '#/components/schemas/SigningPlatform'
-    ValidationException: {}
     EncryptionAlgorithms:
       type: array
       items:
         $ref: '#/components/schemas/EncryptionAlgorithm'
-    MaxSizeInMB:
-      type: integer
-    HashAlgorithm:
-      type: string
-      enum:
-      - SHA1
-      - SHA256
-    AccessDeniedException: {}
-    SigningConfiguration:
-      type: object
-      required:
-      - encryptionAlgorithmOptions
-      - hashAlgorithmOptions
-      properties:
-        encryptionAlgorithmOptions:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAlgorithmOptions'
-          - description: The encryption algorithm options that are available for a code signing job.
-        hashAlgorithmOptions:
-          allOf:
-          - $ref: '#/components/schemas/HashAlgorithmOptions'
-          - description: The hash algorithm options that are available for a code signing job.
-      description: The configuration of a code signing operation.
-    bool:
-      type: boolean
-    HashAlgorithms:
-      type: array
-      items:
-        $ref: '#/components/schemas/HashAlgorithm'
     SigningPlatform:
       type: object
       properties:
@@ -555,9 +398,166 @@ components:
           - $ref: '#/components/schemas/bool'
           - description: Indicates whether revocation is supported for the platform.
       description: Contains information about the signing configurations and parameters that are used to perform a code signing job.
+    HashAlgorithm:
+      type: string
+      enum:
+      - SHA1
+      - SHA256
+    PlatformId:
+      type: string
+    SigningConfiguration:
+      type: object
+      required:
+      - encryptionAlgorithmOptions
+      - hashAlgorithmOptions
+      properties:
+        encryptionAlgorithmOptions:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithmOptions'
+          - description: The encryption algorithm options that are available for a code signing job.
+        hashAlgorithmOptions:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithmOptions'
+          - description: The hash algorithm options that are available for a code signing job.
+      description: The configuration of a code signing operation.
+    bool:
+      type: boolean
+    HashAlgorithms:
+      type: array
+      items:
+        $ref: '#/components/schemas/HashAlgorithm'
     DisplayName:
       type: string
+    ValidationException: {}
+    EncryptionAlgorithmOptions:
+      type: object
+      required:
+      - allowedValues
+      - defaultValue
+      properties:
+        allowedValues:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithms'
+          - description: The set of accepted encryption algorithms that are allowed in a code signing job.
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAlgorithm'
+          - description: The default encryption algorithm that is used by a code signing job.
+      description: The encryption algorithm options that are available to a code signing job.
+    SigningPlatforms:
+      type: array
+      items:
+        $ref: '#/components/schemas/SigningPlatform'
     ResourceNotFoundException: {}
+    InternalServiceErrorException: {}
+    AccessDeniedException: {}
+    EncryptionAlgorithm:
+      type: string
+      enum:
+      - RSA
+      - ECDSA
+    Category:
+      type: string
+      enum:
+      - AWSIoT
+    ImageFormat:
+      type: string
+      enum:
+      - JSON
+      - JSONEmbedded
+      - JSONDetached
+    ImageFormats:
+      type: array
+      items:
+        $ref: '#/components/schemas/ImageFormat'
+    String:
+      type: string
+    MaxSizeInMB:
+      type: integer
+    HashAlgorithmOptions:
+      type: object
+      required:
+      - allowedValues
+      - defaultValue
+      properties:
+        allowedValues:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithms'
+          - description: The set of accepted hash algorithms allowed in a code signing job.
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/HashAlgorithm'
+          - description: The default hash algorithm that is used in a code signing job.
+      description: The hash algorithms that are available to a code signing job.
+    SigningImageFormat:
+      type: object
+      required:
+      - supportedFormats
+      - defaultFormat
+      properties:
+        supportedFormats:
+          allOf:
+          - $ref: '#/components/schemas/ImageFormats'
+          - description: The supported formats of a code signing image.
+        defaultFormat:
+          allOf:
+          - $ref: '#/components/schemas/ImageFormat'
+          - description: The default format of a code signing image.
+      description: The image format of a code signing platform or profile.
+    ListSigningPlatformsResponse:
+      type: object
+      properties:
+        platforms:
+          allOf:
+          - $ref: '#/components/schemas/SigningPlatforms'
+          - description: A list of all platforms that match the request parameters.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: Value for specifying the next set of paginated results to return.
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

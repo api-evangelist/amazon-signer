@@ -384,10 +384,16 @@ paths:
       - Tags
 components:
   schemas:
+    TagResourceResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      maxLength: 256
+    TooManyRequestsException: {}
     UntagResourceResponse:
       type: object
       properties: {}
-    InternalServiceErrorException: {}
     TagKey:
       type: string
       pattern: ^(?!aws:)[a-zA-Z+-=._:/]+$
@@ -399,10 +405,7 @@ components:
       maxProperties: 200
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
-    TagValue:
-      type: string
-      maxLength: 256
-    TooManyRequestsException: {}
+    BadRequestException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -410,20 +413,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: A list of tags associated with the signing profile.
+    InternalServiceErrorException: {}
     NotFoundException: {}
-    TagResourceResponse:
-      type: object
-      properties: {}
-    BadRequestException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -440,8 +434,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -452,8 +446,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

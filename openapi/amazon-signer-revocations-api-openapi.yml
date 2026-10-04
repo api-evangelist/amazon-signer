@@ -229,25 +229,37 @@ paths:
       tags:
       - Revocations
 components:
-  schemas:
-    InternalServiceErrorException: {}
-    AccessDeniedException: {}
-    GetRevocationStatusResponse:
-      type: object
-      properties:
-        revokedEntities:
-          allOf:
-          - $ref: '#/components/schemas/RevokedEntities'
-          - description: A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API.
-    TooManyRequestsException: {}
-    RevokedEntities:
-      type: array
-      items:
-        $ref: '#/components/schemas/String'
-    ValidationException: {}
-    String:
-      type: string
   parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -260,36 +272,24 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    TooManyRequestsException: {}
+    ValidationException: {}
+    GetRevocationStatusResponse:
+      type: object
+      properties:
+        revokedEntities:
+          allOf:
+          - $ref: '#/components/schemas/RevokedEntities'
+          - description: A list of revoked entities (including one or more of the signing profile ARN, signing job ID, and certificate hash) supplied as input to the API.
+    String:
+      type: string
+    RevokedEntities:
+      type: array
+      items:
+        $ref: '#/components/schemas/String'
+    InternalServiceErrorException: {}
+    AccessDeniedException: {}
   securitySchemes:
     hmac:
       type: apiKey
