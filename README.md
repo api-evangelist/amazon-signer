@@ -1,4 +1,4 @@
-# Amazon Signer (amazon-signer)
+# Amazon Signer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,143 +66,248 @@
 
 AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your code. It manages the code-signing certificate public and private keys and enables central management and deployment of code signing certificates for Lambda functions and IoT devices.
 
-**URL:** [https://aws.amazon.com/signer/](https://aws.amazon.com/signer/)
+**Areas:** AWS · Code Signing · IoT · Lambda · Security
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Signer on APIs.io
 
-## Tags:
+Everything profiled for Amazon Signer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-signer/](https://apis.io/providers/amazon-signer/)** — or go straight to one of the APIs or properties below.
 
- - AWS, Code Signing, IoT, Lambda, Security
+### APIs (5)
 
-## Timestamps
+- [Amazon Signer Signing Jobs API](https://apis.io/apis/amazon-signer/amazon-signer-signing-jobs-api/) — The Signing Jobs API from Amazon Signer — 4 operation(s) for signing jobs.
+- [Amazon Signer Signing Platforms API](https://apis.io/apis/amazon-signer/amazon-signer-signing-platforms-api/) — The Signing Platforms API from Amazon Signer — 2 operation(s) for signing platforms.
+- [Amazon Signer Signing Profiles API](https://apis.io/apis/amazon-signer/amazon-signer-signing-profiles-api/) — The Signing Profiles API from Amazon Signer — 5 operation(s) for signing profiles.
+- [Amazon Signer Tags API](https://apis.io/apis/amazon-signer/amazon-signer-tags-api/) — The Tags API from Amazon Signer — 2 operation(s) for tags.
+- [Amazon Signer Revocations API](https://apis.io/apis/amazon-signer/amazon-signer-revocations-api/) — The Revocations API from Amazon Signer — 1 operation(s) for revocations.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AWS Signer API
+#### Agentic access (1)
 
-The AWS Signer API provides programmatic access to create and manage signing profiles, signing jobs, and signing platform permissions for code signing of Lambda functions and IoT device software.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-**Human URL:** [https://aws.amazon.com/signer/](https://aws.amazon.com/signer/)
+- [Amazon Signer Agentic Access](https://apis.io/agentic-access/amazon-signer/amazon-signer-agentic-access/)
 
-#### Tags:
+#### JSON Schema (65)
 
- - Code Signing, Lambda, Security
+The data models the API reads and writes.
 
-#### Properties
+- [AddProfilePermissionRequest](https://apis.io/schemas/amazon-signer/amazon-signer-add-profile-permission-request/)
+- [AddProfilePermissionResponse](https://apis.io/schemas/amazon-signer/amazon-signer-add-profile-permission-response/)
+- [CancelSigningProfileRequest](https://apis.io/schemas/amazon-signer/amazon-signer-cancel-signing-profile-request/)
+- [Category](https://apis.io/schemas/amazon-signer/amazon-signer-category/)
+- [DescribeSigningJobRequest](https://apis.io/schemas/amazon-signer/amazon-signer-describe-signing-job-request/)
+- [DescribeSigningJobResponse](https://apis.io/schemas/amazon-signer/amazon-signer-describe-signing-job-response/)
+- [Destination](https://apis.io/schemas/amazon-signer/amazon-signer-destination/)
+- [EncryptionAlgorithm](https://apis.io/schemas/amazon-signer/amazon-signer-encryption-algorithm/)
+- [EncryptionAlgorithmOptions](https://apis.io/schemas/amazon-signer/amazon-signer-encryption-algorithm-options/)
+- [GetRevocationStatusRequest](https://apis.io/schemas/amazon-signer/amazon-signer-get-revocation-status-request/)
+- [GetRevocationStatusResponse](https://apis.io/schemas/amazon-signer/amazon-signer-get-revocation-status-response/)
+- [GetSigningPlatformRequest](https://apis.io/schemas/amazon-signer/amazon-signer-get-signing-platform-request/)
+- [GetSigningPlatformResponse](https://apis.io/schemas/amazon-signer/amazon-signer-get-signing-platform-response/)
+- [GetSigningProfileRequest](https://apis.io/schemas/amazon-signer/amazon-signer-get-signing-profile-request/)
+- [GetSigningProfileResponse](https://apis.io/schemas/amazon-signer/amazon-signer-get-signing-profile-response/)
+- [HashAlgorithm](https://apis.io/schemas/amazon-signer/amazon-signer-hash-algorithm/)
+- [HashAlgorithmOptions](https://apis.io/schemas/amazon-signer/amazon-signer-hash-algorithm-options/)
+- [ImageFormat](https://apis.io/schemas/amazon-signer/amazon-signer-image-format/)
+- [ListProfilePermissionsRequest](https://apis.io/schemas/amazon-signer/amazon-signer-list-profile-permissions-request/)
+- [ListProfilePermissionsResponse](https://apis.io/schemas/amazon-signer/amazon-signer-list-profile-permissions-response/)
+- [ListSigningJobsRequest](https://apis.io/schemas/amazon-signer/amazon-signer-list-signing-jobs-request/)
+- [ListSigningJobsResponse](https://apis.io/schemas/amazon-signer/amazon-signer-list-signing-jobs-response/)
+- [ListSigningPlatformsRequest](https://apis.io/schemas/amazon-signer/amazon-signer-list-signing-platforms-request/)
+- [ListSigningPlatformsResponse](https://apis.io/schemas/amazon-signer/amazon-signer-list-signing-platforms-response/)
+- [ListSigningProfilesRequest](https://apis.io/schemas/amazon-signer/amazon-signer-list-signing-profiles-request/)
+- …and 40 more published on APIs.io
 
-- [Documentation](https://docs.aws.amazon.com/signer/latest/api/Welcome.html)
-- [OpenAPI](openapi/amazon-signer.yaml)
-- [GettingStarted](https://aws.amazon.com/signer/getting-started/)
-- [Pricing](https://aws.amazon.com/signer/pricing/)
-- [FAQ](https://aws.amazon.com/signer/faqs/)
+#### JSON Structure (65)
 
-## Common Properties
+Data models expressed in JSON Structure.
 
-- [Portal](https://aws.amazon.com/signer/)
+- [Amazon Signer Add Profile Permission Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-add-profile-permission-request-structure/)
+- [Amazon Signer Add Profile Permission Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-add-profile-permission-response-structure/)
+- [Amazon Signer Cancel Signing Profile Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-cancel-signing-profile-request-structure/)
+- [Amazon Signer Category Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-category-structure/)
+- [Amazon Signer Describe Signing Job Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-describe-signing-job-request-structure/)
+- [Amazon Signer Describe Signing Job Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-describe-signing-job-response-structure/)
+- [Amazon Signer Destination Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-destination-structure/)
+- [Amazon Signer Encryption Algorithm Options Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-encryption-algorithm-options-structure/)
+- [Amazon Signer Encryption Algorithm Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-encryption-algorithm-structure/)
+- [Amazon Signer Get Revocation Status Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-revocation-status-request-structure/)
+- [Amazon Signer Get Revocation Status Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-revocation-status-response-structure/)
+- [Amazon Signer Get Signing Platform Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-signing-platform-request-structure/)
+- [Amazon Signer Get Signing Platform Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-signing-platform-response-structure/)
+- [Amazon Signer Get Signing Profile Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-signing-profile-request-structure/)
+- [Amazon Signer Get Signing Profile Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-get-signing-profile-response-structure/)
+- [Amazon Signer Hash Algorithm Options Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-hash-algorithm-options-structure/)
+- [Amazon Signer Hash Algorithm Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-hash-algorithm-structure/)
+- [Amazon Signer Image Format Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-image-format-structure/)
+- [Amazon Signer List Profile Permissions Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-profile-permissions-request-structure/)
+- [Amazon Signer List Profile Permissions Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-profile-permissions-response-structure/)
+- [Amazon Signer List Signing Jobs Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-signing-jobs-request-structure/)
+- [Amazon Signer List Signing Jobs Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-signing-jobs-response-structure/)
+- [Amazon Signer List Signing Platforms Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-signing-platforms-request-structure/)
+- [Amazon Signer List Signing Platforms Response Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-signing-platforms-response-structure/)
+- [Amazon Signer List Signing Profiles Request Structure](https://apis.io/json-structure/amazon-signer/amazon-signer-list-signing-profiles-request-structure/)
+- …and 40 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Signer Context](https://apis.io/jsonld/amazon-signer/amazon-signer-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Signer Vocabulary](https://apis.io/vocabularies/amazon-signer/amazon-signer-vocabulary/)
+
+#### Examples (58)
+
+Example requests and responses.
+
+- [Amazon Signer Add Profile Permission Request Example](https://apis.io/examples/amazon-signer/amazon-signer-add-profile-permission-request-example/)
+- [Amazon Signer Add Profile Permission Response Example](https://apis.io/examples/amazon-signer/amazon-signer-add-profile-permission-response-example/)
+- [Amazon Signer Cancel Signing Profile Request Example](https://apis.io/examples/amazon-signer/amazon-signer-cancel-signing-profile-request-example/)
+- [Amazon Signer Describe Signing Job Request Example](https://apis.io/examples/amazon-signer/amazon-signer-describe-signing-job-request-example/)
+- [Amazon Signer Describe Signing Job Response Example](https://apis.io/examples/amazon-signer/amazon-signer-describe-signing-job-response-example/)
+- [Amazon Signer Destination Example](https://apis.io/examples/amazon-signer/amazon-signer-destination-example/)
+- [Amazon Signer Encryption Algorithm Options Example](https://apis.io/examples/amazon-signer/amazon-signer-encryption-algorithm-options-example/)
+- [Amazon Signer Get Revocation Status Request Example](https://apis.io/examples/amazon-signer/amazon-signer-get-revocation-status-request-example/)
+- [Amazon Signer Get Revocation Status Response Example](https://apis.io/examples/amazon-signer/amazon-signer-get-revocation-status-response-example/)
+- [Amazon Signer Get Signing Platform Request Example](https://apis.io/examples/amazon-signer/amazon-signer-get-signing-platform-request-example/)
+- [Amazon Signer Get Signing Platform Response Example](https://apis.io/examples/amazon-signer/amazon-signer-get-signing-platform-response-example/)
+- [Amazon Signer Get Signing Profile Request Example](https://apis.io/examples/amazon-signer/amazon-signer-get-signing-profile-request-example/)
+- [Amazon Signer Get Signing Profile Response Example](https://apis.io/examples/amazon-signer/amazon-signer-get-signing-profile-response-example/)
+- [Amazon Signer Hash Algorithm Options Example](https://apis.io/examples/amazon-signer/amazon-signer-hash-algorithm-options-example/)
+- [Amazon Signer List Profile Permissions Request Example](https://apis.io/examples/amazon-signer/amazon-signer-list-profile-permissions-request-example/)
+- [Amazon Signer List Profile Permissions Response Example](https://apis.io/examples/amazon-signer/amazon-signer-list-profile-permissions-response-example/)
+- [Amazon Signer List Signing Jobs Request Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-jobs-request-example/)
+- [Amazon Signer List Signing Jobs Response Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-jobs-response-example/)
+- [Amazon Signer List Signing Platforms Request Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-platforms-request-example/)
+- [Amazon Signer List Signing Platforms Response Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-platforms-response-example/)
+- [Amazon Signer List Signing Profiles Request Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-profiles-request-example/)
+- [Amazon Signer List Signing Profiles Response Example](https://apis.io/examples/amazon-signer/amazon-signer-list-signing-profiles-response-example/)
+- [Amazon Signer List Tags For Resource Request Example](https://apis.io/examples/amazon-signer/amazon-signer-list-tags-for-resource-request-example/)
+- [Amazon Signer List Tags For Resource Response Example](https://apis.io/examples/amazon-signer/amazon-signer-list-tags-for-resource-response-example/)
+- [Amazon Signer Metadata Example](https://apis.io/examples/amazon-signer/amazon-signer-metadata-example/)
+- …and 33 more published on APIs.io
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes API](https://apis.io/collections/amazon-signer/open-amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Jobs API](https://apis.io/collections/amazon-signer/open-amazon-signer-signing-jobs-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Platforms API](https://apis.io/collections/amazon-signer/open-amazon-signer-signing-platforms-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Profiles API](https://apis.io/collections/amazon-signer/open-amazon-signer-signing-profiles-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Tags API](https://apis.io/collections/amazon-signer/open-amazon-signer-tags-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes API](https://apis.io/collections/amazon-signer/postman-amazon-signer-revocations-signaturetimestamp-platformid-profileversionarn-jobarn-certificatehashes-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Jobs API](https://apis.io/collections/amazon-signer/postman-amazon-signer-signing-jobs-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Platforms API](https://apis.io/collections/amazon-signer/postman-amazon-signer-signing-platforms-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Signing Profiles API](https://apis.io/collections/amazon-signer/postman-amazon-signer-signing-profiles-api/)
+- [AWS Signer Revocations#signatureTimestamp&platformId&profileVersionArn&jobArn&certificateHashes Tags API](https://apis.io/collections/amazon-signer/postman-amazon-signer-tags-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Signer — jsonschema rules](https://apis.io/rules/amazon-signer/amazon-signer-jsonschema-spectral-rules/)
+- [Amazon Signer API Rules](https://apis.io/rules/amazon-signer/amazon-signer-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Signer Authentication](https://apis.io/security/amazon-signer/amazon-signer-authentication/)
+- [Amazon Signer Domain Security](https://apis.io/security/amazon-signer/amazon-signer-domain-security/)
+- [Amazon Signer Trust Center](https://apis.io/security/amazon-signer/amazon-signer-trust-center/)
+- [Amazon Signer Vulnerability Disclosure](https://apis.io/security/amazon-signer/amazon-signer-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Signer Plans Pricing](https://apis.io/plans/amazon-signer/amazon-signer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Signer Rate Limits](https://apis.io/rate-limits/amazon-signer/amazon-signer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Signer Finops](https://apis.io/finops/amazon-signer/amazon-signer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html)
 - [Documentation](https://docs.aws.amazon.com/signer/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/compute/tag/aws-signer/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/signer/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Centralized Code Signing | Security administrators define signing policies and which IAM roles can sign code. |
-| Certificate Management | Automatically manages code-signing certificate public and private keys. |
-| Lifecycle Management | Central management and deployment of code-signing certificates. |
-| Compliance Tracking | Integration with AWS CloudTrail tracks who generates signatures for compliance. |
-| Fully Managed | No infrastructure to maintain — fully managed code signing service. |
-| Signature Revocation | Revoke signing profiles and individual signatures with effective timestamps. |
+**Kin Score 49.1** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 62.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 44.0 |
+| Access clarity | 43.4 |
 
-| Name | Description |
-|------|-------------|
-| Lambda Code Signing | Sign Lambda deployment packages to ensure only trusted code is deployed. |
-| IoT Firmware Signing | Sign firmware images for microcontrollers and OTA updates via Amazon FreeRTOS. |
-| Container Image Signing | Sign container images using Notation CLI with Amazon ECR and verify at EKS deployment. |
-| Audit and Compliance | Track all signing operations via CloudTrail for audit and compliance requirements. |
+**Agent readiness 31.9** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS Lambda | Sign Lambda deployment packages; Lambda verifies signatures at deployment. |
-| Amazon FreeRTOS | Sign firmware images for IoT microcontrollers and OTA updates. |
-| Amazon ECR | Sign container images using Notation CLI stored in ECR registry. |
-| Amazon EKS | Verify image ownership and integrity at Kubernetes deployment time. |
-| AWS Certificate Manager | Create or import SSL/TLS certificates used for code signing. |
-| AWS CloudTrail | Record and audit all API calls to AWS Signer for compliance. |
-| AWS IoT Device Management | Sign code for IoT devices managed by AWS IoT Device Management. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-signer/](https://apis.io/providers/amazon-signer/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [amazon-signer.yaml](openapi/amazon-signer.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Signer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [amazon-signer-add-profile-permission-request-schema.json](json-schema/amazon-signer-add-profile-permission-request-schema.json)
-- [amazon-signer-add-profile-permission-response-schema.json](json-schema/amazon-signer-add-profile-permission-response-schema.json)
-- [amazon-signer-cancel-signing-profile-request-schema.json](json-schema/amazon-signer-cancel-signing-profile-request-schema.json)
-- [amazon-signer-category-schema.json](json-schema/amazon-signer-category-schema.json)
-- [amazon-signer-describe-signing-job-request-schema.json](json-schema/amazon-signer-describe-signing-job-request-schema.json)
-- ... and 60 more
-
-### JSON Structure
-
-- [amazon-signer-add-profile-permission-request-structure.json](json-structure/amazon-signer-add-profile-permission-request-structure.json)
-- [amazon-signer-add-profile-permission-response-structure.json](json-structure/amazon-signer-add-profile-permission-response-structure.json)
-- [amazon-signer-cancel-signing-profile-request-structure.json](json-structure/amazon-signer-cancel-signing-profile-request-structure.json)
-- [amazon-signer-category-structure.json](json-structure/amazon-signer-category-structure.json)
-- [amazon-signer-describe-signing-job-request-structure.json](json-structure/amazon-signer-describe-signing-job-request-structure.json)
-- ... and 60 more
-
-### JSON-LD
-
-- [amazon-signer-context.jsonld](json-ld/amazon-signer-context.jsonld)
-
-### Examples
-
-- [amazon-signer-add-profile-permission-request-example.json](examples/amazon-signer-add-profile-permission-request-example.json)
-- [amazon-signer-add-profile-permission-response-example.json](examples/amazon-signer-add-profile-permission-response-example.json)
-- [amazon-signer-cancel-signing-profile-request-example.json](examples/amazon-signer-cancel-signing-profile-request-example.json)
-- [amazon-signer-category-example.json](examples/amazon-signer-category-example.json)
-- [amazon-signer-describe-signing-job-request-example.json](examples/amazon-signer-describe-signing-job-request-example.json)
-- ... and 60 more
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [amazon-signer.yaml](capabilities/shared/amazon-signer.yaml) — AWS Signer operations for code signing management
-
-## Vocabulary
-
-- [Amazon Signer Vocabulary](vocabulary/amazon-signer-vocabulary.yaml) — Unified taxonomy mapping 5 resources, 12 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Amazon Signer Spectral Rules](rules/amazon-signer-spectral-rules.yml) — 24 rules across 9 categories enforcing Amazon Signer API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-signer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
