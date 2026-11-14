@@ -1,9 +1,12 @@
 aid: amazon-signer
+
 name: Amazon Signer
-description: AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your
-  code. It manages the code-signing certificate public and private keys and enables central management
-  and deployment of code signing certificates for Lambda functions and IoT devices.
+
+description: AWS Signer is a fully managed code-signing service to ensure the trust and integrity of your code. It manages the code-signing certificate
+  public and private keys and enables central management and deployment of code signing certificates for Lambda functions and IoT devices.
+
 type: Index
+
 deliveryModel:
   model: saas
   open_source: false
@@ -16,6 +19,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -26,14 +30,16 @@ accessModel:
   gated_source:
   - onboarding
   label: Freemium · Self-serve signup
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-signer.png
+
 tags:
 - Amazon Web Services
 - Code Signing
@@ -46,112 +52,66 @@ tags_raw:
 - IoT
 - Lambda
 - Security
+
 url: https://raw.githubusercontent.com/api-evangelist/amazon-signer/refs/heads/main/apis.yml
+
 created: '2026-03-16'
+
 modified: '2026-09-16'
+
 specificationVersion: '0.23'
-apis:
-- aid: amazon-signer:amazon-signer-signing-jobs-api
-  name: Amazon Signer Signing Jobs API
-  description: The Signing Jobs API from Amazon Signer — 4 operation(s) for signing jobs.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags:
-  - Signing Jobs
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-signing-jobs-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
-- aid: amazon-signer:amazon-signer-signing-platforms-api
-  name: Amazon Signer Signing Platforms API
-  description: The Signing Platforms API from Amazon Signer — 2 operation(s) for signing platforms.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags:
-  - Signing Platforms
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-signing-platforms-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
-- aid: amazon-signer:amazon-signer-signing-profiles-api
-  name: Amazon Signer Signing Profiles API
-  description: The Signing Profiles API from Amazon Signer — 5 operation(s) for signing profiles.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags:
-  - Signing Profiles
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-signing-profiles-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
-- aid: amazon-signer:amazon-signer-tags-api
-  name: Amazon Signer Tags API
-  description: The Tags API from Amazon Signer — 2 operation(s) for tags.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags:
-  - Tags
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-tags-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
-- aid: amazon-signer:amazon-signer-revocations-api
-  name: Amazon Signer Revocations API
-  description: The Revocations API from Amazon Signer — 1 operation(s) for revocations.
-  humanURL: https://aws.amazon.com/signer/
-  baseURL: https://signer.amazonaws.com
-  tags:
-  - Revocations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-signer-revocations-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/signer/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/signer/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/signer/faqs/
-  - type: X-NaftikoCapability
-    url: openapi/_original/amazon-signer.yaml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+kind: company
+
 common:
+- type: DeveloperPortal
+  url: https://developer.amazon.com/
+- type: Spectral
+  url: rules/amazon-signer-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-signer-rules.yml
+- type: Spectral
+  url: rules/amazon-signer-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/amazon-signer-context.jsonld
+- type: Vocabulary
+  url: vocabulary/amazon-signer-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-signer-data-model.yml
+- type: ChangeLog
+  url: changelog/amazon-signer-changelog.yml
+- type: Idempotency
+  url: conventions/amazon-signer-conventions.yml
+- type: Conventions
+  url: conventions/amazon-signer-conventions.yml
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: Security
+  url: https://hackerone.com/amazonvrp
+- type: ErrorCatalog
+  url: errors/amazon-signer-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-signer-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-signer-llms.txt
+- type: SecurityTxt
+  url: well-known/amazon-signer-aws-security.txt
+- type: WellKnown
+  url: well-known/amazon-signer-well-known.yml
+- type: Hosts
+  url: hosts/amazon-signer-hosts.yml
+- type: Vendors
+  url: vendors/amazon-signer-vendors.yml
+- type: SDKs
+  url: packages/amazon-signer-packages.yml
+- type: Packages
+  url: packages/amazon-signer-packages.yml
+- type: GettingStarted
+  url: https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds
 - type: Plans
   url: plans/amazon-signer-plans-pricing.yml
 - type: RateLimits
@@ -172,8 +132,6 @@ common:
   url: security/amazon-signer-domain-security.yml
 - type: Authentication
   url: authentication/amazon-signer-authentication.yml
-- type: Portal
-  url: https://aws.amazon.com/signer/
 - type: Documentation
   url: https://docs.aws.amazon.com/signer/
 - type: TermsOfService
@@ -182,8 +140,6 @@ common:
   url: https://aws.amazon.com/privacy/
 - type: Support
   url: https://aws.amazon.com/premiumsupport/
-- type: Blog
-  url: https://aws.amazon.com/blogs/compute/tag/aws-signer/
 - type: GitHubOrganization
   url: https://github.com/aws
 - type: Console
@@ -242,6 +198,137 @@ common:
     description: Sign code for IoT devices managed by AWS IoT Device Management.
 - type: Integrations
   url: https://aws.amazon.com/partners/
+- type: UsageTerms
+  url: terms/amazon-signer-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-signer-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-signer-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-signer-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/amazon-signer-ai-preferences.yml
+
+apis:
+- aid: amazon-signer:amazon-signer-signing-jobs-api
+  name: Amazon Signer Signing Jobs API
+  description: The Signing Jobs API from Amazon Signer — 4 operation(s) for signing jobs.
+  humanURL: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Signing Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-signing-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: X-NaftikoCapability
+    url: openapi/_superseded/amazon-signer.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-signer-describe-signing-job-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-signing-jobs-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-start-signing-job-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-sign-payload-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-sign-payload-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-revoke-signature-request-schema.json
+- aid: amazon-signer:amazon-signer-signing-platforms-api
+  name: Amazon Signer Signing Platforms API
+  description: The Signing Platforms API from Amazon Signer — 2 operation(s) for signing platforms.
+  humanURL: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Signing Platforms
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-signing-platforms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: X-NaftikoCapability
+    url: openapi/_superseded/amazon-signer.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-signer-get-signing-platform-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-signing-platforms-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-signing-platforms-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-get-signing-platform-request-schema.json
+- aid: amazon-signer:amazon-signer-signing-profiles-api
+  name: Amazon Signer Signing Profiles API
+  description: The Signing Profiles API from Amazon Signer — 5 operation(s) for signing profiles.
+  humanURL: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Signing Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-signing-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: X-NaftikoCapability
+    url: openapi/_superseded/amazon-signer.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-signer-get-signing-profile-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-add-profile-permission-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-signing-profiles-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-put-signing-profile-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-revoke-signing-profile-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-profile-permissions-response-schema.json
+- aid: amazon-signer:amazon-signer-tags-api
+  name: Amazon Signer Tags API
+  description: The Tags API from Amazon Signer — 2 operation(s) for tags.
+  humanURL: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: X-NaftikoCapability
+    url: openapi/_superseded/amazon-signer.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-signer-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-tags-for-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-list-tags-for-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-tag-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-untag-resource-response-schema.json
+- aid: amazon-signer:amazon-signer-revocations-api
+  name: Amazon Signer Revocations API
+  description: The Revocations API from Amazon Signer — 1 operation(s) for revocations.
+  humanURL: https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html
+  baseURL: https://signer.amazonaws.com
+  tags:
+  - Revocations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-signer-revocations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/signer/latest/api/Welcome.html
+  - type: X-NaftikoCapability
+    url: openapi/_superseded/amazon-signer.yaml
+  - type: JSONSchema
+    url: json-schema/amazon-signer-get-revocation-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-signer-get-revocation-status-response-schema.json
+
 integrations:
 - name: Partner Programs
 - name: Resources
@@ -251,9 +338,12 @@ integrations:
 - name: AWS Partner Central
 - name: Partner Paths
 - name: co-sell with AWS
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-kind: company
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v6
